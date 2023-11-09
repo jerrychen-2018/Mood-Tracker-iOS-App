@@ -1,13 +1,16 @@
+import 'package:current_v1/components/my_textfield.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+  LoginPage({super.key});
+  final usernameController = TextEditingController();
+  final passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey[300],
-        body: const SafeArea(
+        body: SafeArea(
           child: Center(
             child: Column(
               children: [
@@ -31,9 +34,25 @@ class LoginPage extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
+                SizedBox(
+                  height: 50,
+                ),
 
                 //username textfield
+                MyTextField(
+                  controller: usernameController,
+                  hintText: "Username",
+                  obscureText: false,
+                ),
+                SizedBox(
+                  height: 15,
+                ),
                 //password textfield
+                MyTextField(
+                  controller: passwordController,
+                  hintText: "Password",
+                  obscureText: true,
+                ),
                 //signin button
                 // or continue with google or apple
                 // not a member? register now
