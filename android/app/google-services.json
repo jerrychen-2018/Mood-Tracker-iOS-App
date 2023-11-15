@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "825833569082",
+    "project_id": "current-da355",
+    "storage_bucket": "current-da355.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:825833569082:android:8475689dfd0c6941906e03",
+        "android_client_info": {
+          "package_name": "com.jerrychen.current_v1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXqY_QMPWuLBZdpLtVb-XBOeRVoLKWRsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

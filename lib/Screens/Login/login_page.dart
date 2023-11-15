@@ -1,15 +1,52 @@
 import 'package:ebbnflow/components/my_textfield.dart';
 import 'package:flutter/material.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../../components/my_button.dart';
 import '../../components/square_tile.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   LoginPage({super.key});
-  final usernameController = TextEditingController();
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final emailController = TextEditingController();
+
   final passwordController = TextEditingController();
 
-  void signUserIn() {}
+  void signUserIn() async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+      Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+
+      if (e.code == 'INVALID_LOGIN_CREDENTIALS') {
+        wrongCredentialMessage();
+      }
+    }
+  }
+
+  void wrongCredentialMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          title: Text('Email or Password is invalid'),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +83,11 @@ class LoginPage extends StatelessWidget {
                   height: 20,
                 ),
 
-                //username textfield
+                //email textfield
 
                 MyTextField(
-                  controller: usernameController,
-                  hintText: "Username",
+                  controller: emailController,
+                  hintText: "Email",
                   obscureText: false,
                 ),
 
