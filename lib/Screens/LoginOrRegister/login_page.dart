@@ -1,10 +1,11 @@
 import 'package:ebbnflow/components/apple_alt_signin.dart';
 import 'package:ebbnflow/components/google_alt_signin.dart';
 import 'package:ebbnflow/components/my_textfield.dart';
+import 'package:ebbnflow/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../components/my_button.dart';
-import '../../components/square_tile.dart';
+//import '../../components/square_tile.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -168,12 +169,15 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 
                   // or continue with google or apple
-                  const Column(
+                  Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       // google button
                       //SquareTile(imagePath: 'lib/images/google.png'),
-                      GoogleAltSignIn(imagePath: 'lib/images/google.png'),
+                      GoogleAltSignIn(
+                        imagePath: 'lib/images/google.png',
+                        onTap: () => AuthService().signInWithGoogle(),
+                      ),
                       SizedBox(
                         height: 15,
                       ),

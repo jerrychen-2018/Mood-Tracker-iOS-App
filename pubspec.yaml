@@ -39,6 +39,8 @@ dependencies:
   firebase_auth: ^4.13.0
   google_sign_in: ^6.1.6
   flutter_svg: ^2.0.5
+  flutter_emoji: ">= 2.0.0"
+  gap: ^3.0.1
 
 dev_dependencies:
   flutter_test:
