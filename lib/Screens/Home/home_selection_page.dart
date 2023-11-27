@@ -1,13 +1,24 @@
+import 'dart:convert';
+
+import 'package:ebbnflow/Screens/Verse/verse_page.dart';
 import 'package:ebbnflow/components/my_button.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:http/http.dart' as http;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 
-class HomeSelectionPage extends StatelessWidget {
+class HomeSelectionPage extends StatefulWidget {
   final String emoji;
 
   const HomeSelectionPage({super.key, required this.emoji});
 
+  @override
+  State<HomeSelectionPage> createState() => _HomeSelectionPageState();
+}
+
+class _HomeSelectionPageState extends State<HomeSelectionPage> {
+  String finalResponse = "";
   List emotionWords(String emotion) {
     var words = <String>[];
 
@@ -17,20 +28,60 @@ class HomeSelectionPage extends StatelessWidget {
     if (emotion == "😐") {
       words.addAll(['Average', 'Indifferent']);
     }
-    if (emotion == "😕") {
-      words.addAll(
-          ["Loneliness", "Anger", "Guilt", "Shame", "Worry", "Confusion"]);
+    if (emotion == "😢") {
+      words.addAll([
+        "Fear",
+        "Loneliness",
+        "Anger",
+        "Guilt",
+        "Shame",
+        "Worry",
+        "Confusion"
+      ]);
     }
 
     return words;
   }
 
+  void goBack() {
+    Navigator.pop(context);
+  }
+
+  void getVerse() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => VersePage(verse: finalResponse)),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [for (var i in emotionWords(emoji)) Text(i.toString())]),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Words"),
+      ),
+      body: Center(
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          //MyButton(onTap: goBack, text: "Back"),
+          for (var i in emotionWords(widget.emoji))
+            OutlinedButton(
+              onPressed: () async {
+                final url = "http://127.0.0.1:5000/";
+                final response = await http.get(Uri.parse(url));
+                final decoded =
+                    jsonDecode(response.body) as Map<String, dynamic>;
+
+                setState(() {
+                  finalResponse = decoded['verse'];
+                });
+              },
+              style: OutlinedButton.styleFrom(foregroundColor: Colors.amber),
+              child: Text(i.toString()),
+            ),
+          Gap(3),
+          MyButton(onTap: getVerse, text: "Submit"),
+        ]),
+      ),
     );
   }
 }

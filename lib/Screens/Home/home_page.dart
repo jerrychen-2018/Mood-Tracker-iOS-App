@@ -20,11 +20,16 @@ class _HomePageState extends State<HomePage> {
   Map<int, String> emojiMap = {1: "😢", 2: "🙁", 3: "😶", 4: "🙂", 5: "😆"};
 
   void submitMood() {
-    showModalBottomSheet(
-        context: context,
-        builder: (builder) {
-          return HomeSelectionPage(emoji: _moodState);
-        });
+    // showModalBottomSheet(
+    //     context: context,
+    //     builder: (builder) {
+    //       return HomeSelectionPage(emoji: _moodState);
+    //     });
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+          builder: (context) => HomeSelectionPage(emoji: _moodState)),
+    );
   }
 
   void signUserOut() {
