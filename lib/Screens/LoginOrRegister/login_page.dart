@@ -66,28 +66,28 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   //logo
 
-                  Icon(
+                  const Icon(
                     Icons.lock_clock_rounded,
                     size: 80,
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   //welcome back
-                  Text(
+                  const Text(
                     'Welcome to Current!',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
 
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: false,
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   //password textfield
@@ -178,12 +178,12 @@ class _LoginPageState extends State<LoginPage> {
                         imagePath: 'lib/images/google.png',
                         onTap: () => AuthService().signInWithGoogle(),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       // apple button
                       //SquareTile(imagePath: 'lib/images/apple.png'),
-                      AppleAltSignIn(imagePath: 'lib/images/apple_logo.svg')
+                      const AppleAltSignIn(imagePath: 'lib/images/apple_logo.svg')
                     ],
                   ),
 
@@ -195,11 +195,11 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Not a member?',
                         style: TextStyle(color: Colors.grey),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 4,
                       ),
                       GestureDetector(
@@ -212,7 +212,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   )
                 ],

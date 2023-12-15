@@ -9,12 +9,12 @@ class VersePage extends StatelessWidget {
     return Center(
       child: Container(
         color: Colors.blue,
+        alignment: const Alignment(0.0, 0.0),
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           MyElevatedCard(
             text: verse,
           ),
         ]),
-        alignment: Alignment(0.0, 0.0),
       ),
     );
   }

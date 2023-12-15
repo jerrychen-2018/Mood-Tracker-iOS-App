@@ -5,8 +5,6 @@ import 'package:ebbnflow/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:http/http.dart' as http;
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_emoji/flutter_emoji.dart';
 
 class HomeSelectionPage extends StatefulWidget {
   final String emoji;
@@ -66,7 +64,7 @@ class _HomeSelectionPageState extends State<HomeSelectionPage> {
           for (var i in emotionWords(widget.emoji))
             OutlinedButton(
               onPressed: () async {
-                final url = "http://127.0.0.1:5000/";
+                const url = "http://127.0.0.1:5000/";
                 final response = await http.get(Uri.parse(url));
                 final decoded =
                     jsonDecode(response.body) as Map<String, dynamic>;
@@ -78,7 +76,7 @@ class _HomeSelectionPageState extends State<HomeSelectionPage> {
               style: OutlinedButton.styleFrom(foregroundColor: Colors.amber),
               child: Text(i.toString()),
             ),
-          Gap(3),
+          const Gap(3),
           MyButton(onTap: getVerse, text: "Submit"),
         ]),
       ),

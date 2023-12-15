@@ -15,14 +15,14 @@ class AppleAltSignIn extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10),
         ),
-        shadows: [
-          const BoxShadow(
+        shadows: const [
+          BoxShadow(
             color: Color(0x2A000000),
             blurRadius: 3,
             offset: Offset(0, 2),
             spreadRadius: 0,
           ),
-          const BoxShadow(
+          BoxShadow(
             color: Color(0x15000000),
             blurRadius: 3,
             offset: Offset(0, 0),
@@ -52,7 +52,7 @@ class AppleAltSignIn extends StatelessWidget {
                   width: 24,
                   height: 24,
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(color: Colors.black),
+                  decoration: const BoxDecoration(color: Colors.black),
                   child: Stack(children: [
                     SvgPicture.asset(
                       imagePath,
@@ -61,11 +61,11 @@ class AppleAltSignIn extends StatelessWidget {
                   ]),
                 ),
                 const SizedBox(width: 15),
-                Text(
+                const Text(
                   'Continue with Apple',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 20,
+                    fontSize: 19,
                     fontFamily: 'SF Pro Display',
                     fontWeight: FontWeight.w500,
                     height: 0,

@@ -18,14 +18,14 @@ class GoogleAltSignIn extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          shadows: [
-            const BoxShadow(
+          shadows: const [
+            BoxShadow(
               color: Color(0x2A000000),
               blurRadius: 3,
               offset: Offset(0, 2),
               spreadRadius: 0,
             ),
-            const BoxShadow(
+            BoxShadow(
               color: Color(0x15000000),
               blurRadius: 3,
               offset: Offset(0, 0),
@@ -54,13 +54,13 @@ class GoogleAltSignIn extends StatelessWidget {
                   Container(
                     width: 24,
                     height: 24,
-                    decoration: BoxDecoration(color: Colors.white),
+                    decoration: const BoxDecoration(color: Colors.white),
                     child: Stack(
                       children: [
                         Positioned(
                           left: 0.50,
                           top: 0.50,
-                          child: Container(
+                          child: SizedBox(
                             width: 23,
                             height: 23,
                             child: Stack(
@@ -76,7 +76,7 @@ class GoogleAltSignIn extends StatelessWidget {
                     'Continue with Google',
                     style: TextStyle(
                       color: Colors.black.withOpacity(0.5400000214576721),
-                      fontSize: 20,
+                      fontSize: 19,
                       fontFamily: 'Roboto',
                       fontWeight: FontWeight.w500,
                       height: 0,

@@ -67,28 +67,28 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   //logo
 
-                  Icon(
+                  const Icon(
                     Icons.lock_clock_rounded,
                     size: 80,
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   //welcome back
-                  Text(
+                  const Text(
                     'Time to create an account!',
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
 
@@ -183,11 +183,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         'Already have an account?',
                         style: TextStyle(color: Colors.grey),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 4,
                       ),
                       GestureDetector(
@@ -200,7 +200,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   )
                 ],

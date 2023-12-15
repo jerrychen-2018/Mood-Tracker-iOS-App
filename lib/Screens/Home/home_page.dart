@@ -1,4 +1,3 @@
-import 'dart:collection';
 
 import 'package:ebbnflow/Screens/Home/home_selection_page.dart';
 import 'package:ebbnflow/components/custom_slider_thumb.dart';
@@ -8,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_emoji/flutter_emoji.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -43,7 +42,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(actions: [
-          IconButton(onPressed: signUserOut, icon: Icon(Icons.logout))
+          IconButton(onPressed: signUserOut, icon: const Icon(Icons.logout))
         ]),
         body: Center(
           child: SingleChildScrollView(
@@ -71,8 +70,6 @@ class _HomePageState extends State<HomePage> {
                     max: 5,
                     activeColor: Colors.blue[300],
                     thumbColor: Colors.blue[400],
-                    divisions: 4,
-                    label: _moodState,
                     onChanged: (newValue) {
                       setState(() {
                         _sliderValue = newValue;
@@ -103,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                         5,
                         (index) => Text(
                               emojiMap[index + 1]!,
-                              style: TextStyle(fontSize: 35),
+                              style: const TextStyle(fontSize: 35),
                             )),
                   ),
                 ),

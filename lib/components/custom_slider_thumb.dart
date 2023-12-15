@@ -26,11 +26,11 @@ class CustomSliderThumb extends SliderComponentShape {
       required Size sizeWithOverflow}) {
     final canvas = context.canvas;
 
-    final textStyle = TextStyle(
+    const textStyle = TextStyle(
       color: Colors.black,
       fontSize: 30,
     );
-    final textSpan = TextSpan(
+    const textSpan = TextSpan(
       text: "hello",
       style: textStyle,
     );
@@ -38,7 +38,7 @@ class CustomSliderThumb extends SliderComponentShape {
       text: textSpan,
       textDirection: TextDirection.ltr,
     );
-    Size size = Size(300, 300);
+    Size size = const Size(300, 300);
     textPainter.layout(
       minWidth: 0,
       maxWidth: size.width,

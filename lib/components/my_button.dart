@@ -23,6 +23,7 @@ class MyButton extends StatelessWidget {
             text,
             style: const TextStyle(
               color: Colors.white,
+              fontFamily: 'SFPro',
               fontWeight: FontWeight.bold,
               fontSize: 16,
             ),

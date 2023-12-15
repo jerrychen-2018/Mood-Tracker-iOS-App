@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class MyElevatedCard extends StatelessWidget {
   final String text;
-  MyElevatedCard({super.key, required this.text});
+  const MyElevatedCard({super.key, required this.text});
   @override
   Widget build(BuildContext context) {
     return Card(

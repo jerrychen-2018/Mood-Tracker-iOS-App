@@ -42,6 +42,23 @@ dependencies:
   flutter_emoji: ">= 2.0.0"
   gap: ^3.0.1
   http: ^1.1.0
+  flutter_native_splash: ^2.3.8
+  smooth_page_indicator: ^1.1.0
+  flutter_local_notifications: ^16.2.0
+  flutter_launcher_icons: ^0.13.1
+
+flutter_native_splash: 
+  color: "#ffffff"
+  image: lib/images/splash.png
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path_ios: "lib/images/splash.png"
+  image_path_android: "lib/images/splash.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  background_color_ios: "#ffffff"
+  
 
 dev_dependencies:
   flutter_test:
@@ -53,6 +70,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -68,6 +86,13 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - lib/images/
+  
+  fonts:
+    - family: SFPro
+      fonts:
+        - asset: fonts/SF-Pro-Text-Regular.otf
+        - asset: fonts/SF-Pro-Text-Semibold.otf
+          
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
