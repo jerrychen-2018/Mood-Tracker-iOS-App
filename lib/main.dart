@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:ebbnflow/Screens/VerseList/verse_list.dart';
 import 'package:ebbnflow/Screens/Welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'Screens/Auth/auth_page.dart';
@@ -26,12 +27,15 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       //theme: ThemeData(fontFamily: 'SFPro'),
       home: WelcomePage(),
       //home: AuthPage(),
+      routes: {
+        '/verselist': (context) => const VerseList(),
+      },
     );
   }
 }

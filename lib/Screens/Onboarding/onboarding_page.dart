@@ -1,7 +1,7 @@
-import 'package:ebbnflow/Screens/Home/home_page.dart';
 import 'package:ebbnflow/Screens/Onboarding/intro_page_one.dart';
 import 'package:ebbnflow/Screens/Onboarding/intro_page_two.dart';
 import 'package:ebbnflow/Screens/Onboarding/intro_page_three.dart';
+import 'package:ebbnflow/Screens/VerseList/verse_list.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -54,10 +54,8 @@ class _MyWidgetState extends State<OnboardingPage> {
                       ? GestureDetector(
                           child: Text("Done"),
                           onTap: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return HomePage();
-                            }));
+                            Navigator.pushNamedAndRemoveUntil(
+                                context, "/verselist", (_) => false);
                           },
                         )
                       : GestureDetector(
