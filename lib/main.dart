@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart';
 import 'package:ebbnflow/Screens/VerseList/verse_list.dart';
 import 'package:ebbnflow/Screens/Welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
       //home: AuthPage(),
       routes: {
         '/verselist': (context) => const VerseList(),
+        '/bottomnavbar': (context) => BottomNavBar(),
       },
     );
   }

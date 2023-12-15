@@ -55,7 +55,7 @@ class _MyWidgetState extends State<OnboardingPage> {
                           child: Text("Done"),
                           onTap: () {
                             Navigator.pushNamedAndRemoveUntil(
-                                context, "/verselist", (_) => false);
+                                context, "/bottomnavbar", (_) => false);
                           },
                         )
                       : GestureDetector(
