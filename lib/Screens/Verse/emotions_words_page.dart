@@ -53,6 +53,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor:
+                            fearIsPressed ? Colors.lightBlue : Colors.white),
                     onPressed: () {
                       setState(() {
                         fearIsPressed = !fearIsPressed;
@@ -70,6 +73,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                   width: 8,
                 ),
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor:
+                            lonelyIsPressed ? Colors.lightBlue : Colors.white),
                     onPressed: () {
                       setState(() {
                         lonelyIsPressed = !lonelyIsPressed;
@@ -88,6 +94,10 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                   width: 8,
                 ),
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor: gratitudeIsPressed
+                            ? Colors.lightBlue
+                            : Colors.white),
                     onPressed: () {
                       setState(() {
                         gratitudeIsPressed = !gratitudeIsPressed;
@@ -108,6 +118,10 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor: encouragedIsPressed
+                            ? Colors.lightBlue
+                            : Colors.white),
                     onPressed: () {
                       setState(() {
                         encouragedIsPressed = !encouragedIsPressed;
@@ -126,6 +140,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                   width: 8,
                 ),
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor:
+                            angryIsPressed ? Colors.lightBlue : Colors.white),
                     onPressed: () {
                       setState(() {
                         angryIsPressed = !angryIsPressed;
@@ -143,6 +160,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                   width: 8,
                 ),
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor:
+                            joyfulIsPressed ? Colors.lightBlue : Colors.white),
                     onPressed: () {
                       setState(() {
                         joyfulIsPressed = !joyfulIsPressed;
@@ -163,6 +183,10 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor: confusedIsPressed
+                            ? Colors.lightBlue
+                            : Colors.white),
                     onPressed: () {
                       setState(() {
                         confusedIsPressed = !confusedIsPressed;
@@ -181,6 +205,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                   width: 8,
                 ),
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor:
+                            worriedIsPressed ? Colors.lightBlue : Colors.white),
                     onPressed: () {
                       setState(() {
                         worriedIsPressed = !worriedIsPressed;
@@ -199,6 +226,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                   width: 8,
                 ),
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor:
+                            hopefulIsPressed ? Colors.lightBlue : Colors.white),
                     onPressed: () {
                       setState(() {
                         hopefulIsPressed = !hopefulIsPressed;
@@ -219,6 +249,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor:
+                            enviousIsPressed ? Colors.lightBlue : Colors.white),
                     onPressed: () {
                       setState(() {
                         enviousIsPressed = !enviousIsPressed;
@@ -237,6 +270,10 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                   width: 8,
                 ),
                 OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                        backgroundColor: disappointedIsPressed
+                            ? Colors.lightBlue
+                            : Colors.white),
                     onPressed: () {
                       setState(() {
                         disappointedIsPressed = !disappointedIsPressed;
