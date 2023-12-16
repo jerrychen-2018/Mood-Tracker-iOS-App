@@ -1,6 +1,5 @@
 import "package:ebbnflow/Screens/Settings/settings.dart";
 import "package:ebbnflow/Screens/Verse/emotions_words_page.dart";
-import "package:ebbnflow/Screens/Verse/verse_page.dart";
 import "package:ebbnflow/Screens/VerseList/verse_list.dart";
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';

@@ -1,7 +1,8 @@
 import 'package:ebbnflow/Screens/Onboarding/intro_page_one.dart';
 import 'package:ebbnflow/Screens/Onboarding/intro_page_two.dart';
 import 'package:ebbnflow/Screens/Onboarding/intro_page_three.dart';
-import 'package:ebbnflow/Screens/VerseList/verse_list.dart';
+import "package:ebbnflow/Screens/Verse/emotions_words_page_onboard.dart";
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -28,7 +29,7 @@ class _MyWidgetState extends State<OnboardingPage> {
                   onLastPage = (index == 2);
                 });
               },
-              children: [
+              children: const [
                 IntroPageOne(),
                 IntroPageTwo(),
                 IntroPageThree(),
@@ -54,12 +55,14 @@ class _MyWidgetState extends State<OnboardingPage> {
                       ? GestureDetector(
                           child: Text("Done"),
                           onTap: () {
-                            Navigator.pushNamedAndRemoveUntil(
-                                context, "/bottomnavbar", (_) => false);
+                            showCupertinoModalBottomSheet(
+                                context: context,
+                                builder: (context) =>
+                                    EmotionWordsPageOnboard());
                           },
                         )
                       : GestureDetector(
-                          child: Text("Next"),
+                          child: const Text("Next"),
                           onTap: () {
                             _controller.nextPage(
                                 duration: Duration(milliseconds: 500),
