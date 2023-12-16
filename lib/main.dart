@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Auth',
       //theme: ThemeData(fontFamily: 'SFPro'),
-      home: WelcomePage(),
+      home: const WelcomePage(),
       //home: AuthPage(),
       routes: {
         '/verselist': (context) => const VerseList(),

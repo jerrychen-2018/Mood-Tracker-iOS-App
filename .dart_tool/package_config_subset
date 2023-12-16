@@ -138,6 +138,10 @@ flutter_svg
 2.19
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/flutter_svg-2.0.9/
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/flutter_svg-2.0.9/lib/
+font_awesome_flutter
+3.0
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/font_awesome_flutter-10.6.0/
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/font_awesome_flutter-10.6.0/lib/
 gap
 2.12
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/gap-3.0.1/
@@ -210,6 +214,10 @@ meta
 2.12
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/meta-1.10.0/
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/meta-1.10.0/lib/
+modal_bottom_sheet
+2.17
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/modal_bottom_sheet-3.0.0-pre/
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/modal_bottom_sheet-3.0.0-pre/lib/
 package_config
 2.12
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/package_config-2.1.0/

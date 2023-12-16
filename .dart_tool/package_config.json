@@ -230,6 +230,12 @@
       "languageVersion": "3.2"
     },
     {
+      "name": "font_awesome_flutter",
+      "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/font_awesome_flutter-10.6.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "gap",
       "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/gap-3.0.1",
       "packageUri": "lib/",
@@ -336,6 +342,12 @@
       "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/meta-1.10.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "modal_bottom_sheet",
+      "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/modal_bottom_sheet-3.0.0-pre",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "package_config",
@@ -518,7 +530,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-14T23:55:25.414829Z",
+  "generated": "2023-12-16T02:58:18.806753Z",
   "generator": "pub",
   "generatorVersion": "3.2.0"
 }

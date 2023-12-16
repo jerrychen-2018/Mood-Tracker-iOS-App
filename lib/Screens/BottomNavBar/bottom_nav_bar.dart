@@ -1,5 +1,9 @@
 import "package:ebbnflow/Screens/Settings/settings.dart";
+import "package:ebbnflow/Screens/Verse/emotions_words_page.dart";
+import "package:ebbnflow/Screens/Verse/verse_page.dart";
 import "package:ebbnflow/Screens/VerseList/verse_list.dart";
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import "package:flutter/material.dart";
 
 class BottomNavBar extends StatefulWidget {
@@ -19,14 +23,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
     });
   }
 
+  void addVerse() {
+    showCupertinoModalBottomSheet(
+        context: context, builder: (context) => EmotionWordsPage());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: pageOptions.elementAt(_selectedPageIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "List"),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: "Settings")
+          BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.scroll), label: "List"),
+          BottomNavigationBarItem(
+              icon: FaIcon(FontAwesomeIcons.gear), label: "Settings")
         ],
         currentIndex: _selectedPageIndex,
         selectedItemColor: Colors.lightBlueAccent,
@@ -34,7 +45,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () {},
+        onPressed: addVerse,
         shape: CircleBorder(),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
