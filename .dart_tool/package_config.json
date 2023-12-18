@@ -20,6 +20,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "animated_text_kit",
+      "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/animated_text_kit-4.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "ansicolor",
       "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/ansicolor-2.0.2",
       "packageUri": "lib/",
@@ -530,7 +536,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-16T02:58:18.806753Z",
+  "generated": "2023-12-18T03:29:03.575728Z",
   "generator": "pub",
   "generatorVersion": "3.2.0"
 }

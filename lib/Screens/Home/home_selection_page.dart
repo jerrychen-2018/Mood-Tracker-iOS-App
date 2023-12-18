@@ -48,7 +48,11 @@ class _HomeSelectionPageState extends State<HomeSelectionPage> {
   void getVerse() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => VersePage(verse: finalResponse)),
+      MaterialPageRoute(
+          builder: (context) => VersePage(
+                verse: finalResponse,
+                parentContext: context,
+              )),
     );
   }
 

@@ -24,13 +24,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   void addVerse() {
     showCupertinoModalBottomSheet(
-        context: context, builder: (context) => EmotionWordsPage());
+        expand: true,
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context) => EmotionWordsPage());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pageOptions.elementAt(_selectedPageIndex),
+      body: SafeArea(child: pageOptions.elementAt(_selectedPageIndex)),
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
