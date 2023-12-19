@@ -37,7 +37,7 @@ class SQLHelper {
 
   static Future<List<Map<String, dynamic>>> getItems() async {
     final db = await SQLHelper.db();
-    return db.query('verses', orderBy: "id");
+    return db.query('verses', orderBy: "createdAt DESC");
   }
 
   static Future<List<Map<String, dynamic>>> getItem(int id) async {

@@ -1,7 +1,9 @@
-import "package:ebbnflow/components/my_elevated_card.dart";
+import "package:ebbnflow/components/my_verse_tile.dart";
 import "package:ebbnflow/services/sql_helper.dart";
 import "package:ebbnflow/Screens/Verse/emotions_words_page.dart";
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:provider/provider.dart';
+import 'package:ebbnflow/models/breadify.dart';
 import "package:flutter/material.dart";
 
 class VerseList extends StatefulWidget {
@@ -16,16 +18,6 @@ class _VerseListState extends State<VerseList> {
 
   bool _isLoading = true;
 
-  void addVerse() async {
-    final result = await showCupertinoModalBottomSheet(
-        expand: true,
-        context: context,
-        backgroundColor: Colors.transparent,
-        builder: (context) => const EmotionWordsPage());
-    _refreshListView();
-    print("...number of items ${listview.length}");
-  }
-
   void _refreshListView() async {
     final data = await SQLHelper.getItems();
     setState(() {
@@ -34,59 +26,79 @@ class _VerseListState extends State<VerseList> {
     });
   }
 
-  void _deleteItem(int id) async {
-    await SQLHelper.deleteItem(id);
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _refreshListView();
+  //   print("...number of items ${listview.length}");
+  //   print("...items ${listview.toString()}");
+  // }
+
+  Future<void> addVerse() async {
+    final result = await showCupertinoModalBottomSheet(
+        expand: true,
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context) => const EmotionWordsPage());
+
+    print("...number of items ${listview.length}");
+    print("...items ${listview.toString()}");
   }
+
+  // void _deleteItem(int id) async {
+  //   await SQLHelper.deleteItem(id);
+  //   _refreshListView();
+  // }
 
   // String emotionsToString()
 
   @override
-  void initState() {
-    super.initState();
-    _refreshListView();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Scripture List"),
-        leading: null,
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            const Text(
-              "Your List",
-              textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: listview.length,
-              itemBuilder: (context, index) => Card(
-                color: Colors.white,
-                margin: EdgeInsets.all(20),
-                child: ListTile(
-                  title: Text(listview[index]['verseTitle']),
-                  subtitle: Text(listview[index]['verse'] +
-                      " " +
-                      listview[index]['emotions'] +
-                      " " +
-                      listview[index]['date']),
+    return Consumer<Breadify>(
+        builder: (context, value, child) => Scaffold(
+              appBar: AppBar(
+                title: const Text("Scripture List"),
+                leading: null,
+              ),
+              body: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 25),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      const Text(
+                        "Your List",
+                        textAlign: TextAlign.justify,
+                        style: TextStyle(
+                            fontSize: 28, fontWeight: FontWeight.bold),
+                      ),
+
+                      // AnimatedList(
+                      //     shrinkWrap: true,
+                      //     physics: const NeverScrollableScrollPhysics(),
+                      //     initialItemCount: listview.length,
+                      //     itemBuilder: (context, index, animation) => MyVerseTile(
+                      //           itemAtIndex: listview[index],
+                      //           animation: animation,
+                      //         )),
+                      ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount: value.userEntries.length,
+                          itemBuilder: (context, index) => MyVerseTile(
+                              itemAtIndex: value.userEntries[index]))
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: addVerse,
-        shape: const CircleBorder(),
-        child: const Icon(Icons.add),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
-    );
+              floatingActionButton: FloatingActionButton(
+                onPressed: addVerse,
+                shape: const CircleBorder(),
+                child: const Icon(Icons.add),
+              ),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.miniEndFloat,
+            ));
   }
 }
