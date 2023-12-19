@@ -13,11 +13,11 @@ class IntroPageTwo extends StatelessWidget {
             height: constraints.maxHeight / 2,
             color: Colors.red,
           ),
-          Container(
+          SizedBox(
             height: constraints.maxHeight / 2,
             //color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.all(30.0),
+            child: const Padding(
+              padding: EdgeInsets.all(30.0),
               child: Text("Hello"),
             ),
           ),

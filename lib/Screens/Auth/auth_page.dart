@@ -1,5 +1,4 @@
 import 'package:ebbnflow/Screens/LoginOrRegister/login_or_register_page.dart';
-import 'package:ebbnflow/Screens/Welcome/welcome_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../Home/home_page.dart';

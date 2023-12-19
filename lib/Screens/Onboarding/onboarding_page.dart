@@ -43,7 +43,7 @@ class _MyWidgetState extends State<OnboardingPage> {
                 children: [
                   //skip
                   GestureDetector(
-                    child: Text("Skip"),
+                    child: const Text("Skip"),
                     onTap: () {
                       _controller.jumpToPage(2);
                     },
@@ -53,19 +53,19 @@ class _MyWidgetState extends State<OnboardingPage> {
                   //next or done
                   onLastPage
                       ? GestureDetector(
-                          child: Text("Done"),
+                          child: const Text("Done"),
                           onTap: () {
                             showCupertinoModalBottomSheet(
                                 context: context,
                                 builder: (context) =>
-                                    EmotionWordsPageOnboard());
+                                    const EmotionWordsPageOnboard());
                           },
                         )
                       : GestureDetector(
                           child: const Text("Next"),
                           onTap: () {
                             _controller.nextPage(
-                                duration: Duration(milliseconds: 500),
+                                duration: const Duration(milliseconds: 500),
                                 curve: Curves.easeIn);
                           },
                         )

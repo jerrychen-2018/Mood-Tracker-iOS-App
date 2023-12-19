@@ -32,7 +32,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPageOnboard> {
           icon: const FaIcon(FontAwesomeIcons.xmark),
           onPressed: () => Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => BottomNavBar()),
+              MaterialPageRoute(builder: (context) => const BottomNavBar()),
               (route) => false),
         ),
       ),
@@ -55,43 +55,43 @@ class _EmotionWordsPageState extends State<EmotionWordsPageOnboard> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                OutlinedButton(onPressed: () {}, child: Text("Fear")),
+                OutlinedButton(onPressed: () {}, child: const Text("Fear")),
                 const SizedBox(
                   width: 8,
                 ),
-                OutlinedButton(onPressed: () {}, child: Text("Lonely")),
+                OutlinedButton(onPressed: () {}, child: const Text("Lonely")),
                 const SizedBox(
                   width: 8,
                 ),
-                OutlinedButton(onPressed: () {}, child: Text("Gratitude"))
+                OutlinedButton(onPressed: () {}, child: const Text("Gratitude"))
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                OutlinedButton(onPressed: () {}, child: Text("Encouraged")),
+                OutlinedButton(onPressed: () {}, child: const Text("Encouraged")),
                 const SizedBox(
                   width: 8,
                 ),
-                OutlinedButton(onPressed: () {}, child: Text("Angry")),
+                OutlinedButton(onPressed: () {}, child: const Text("Angry")),
                 const SizedBox(
                   width: 8,
                 ),
-                OutlinedButton(onPressed: () {}, child: Text("Joyful"))
+                OutlinedButton(onPressed: () {}, child: const Text("Joyful"))
               ],
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                OutlinedButton(onPressed: () {}, child: Text("Confused")),
+                OutlinedButton(onPressed: () {}, child: const Text("Confused")),
                 const SizedBox(
                   width: 8,
                 ),
-                OutlinedButton(onPressed: () {}, child: Text("Worried")),
+                OutlinedButton(onPressed: () {}, child: const Text("Worried")),
                 const SizedBox(
                   width: 8,
                 ),
-                OutlinedButton(onPressed: () {}, child: Text("Hopeful"))
+                OutlinedButton(onPressed: () {}, child: const Text("Hopeful"))
               ],
             ),
             Row(

@@ -1,20 +1,9 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart';
 import 'package:ebbnflow/Screens/VerseList/verse_list.dart';
 import 'package:ebbnflow/Screens/Welcome/welcome_page.dart';
 import 'package:flutter/material.dart';
-import 'Screens/Auth/auth_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter/services.dart';
-//import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-import 'package:timezone/data/latest_all.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,13 +19,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Auth',
-      //theme: ThemeData(fontFamily: 'SFPro'),
+      title: 'Breadify',
       home: const WelcomePage(),
-      //home: AuthPage(),
       routes: {
         '/verselist': (context) => const VerseList(),
-        '/bottomnavbar': (context) => BottomNavBar(),
+        '/bottomnavbar': (context) => const BottomNavBar(),
       },
     );
   }

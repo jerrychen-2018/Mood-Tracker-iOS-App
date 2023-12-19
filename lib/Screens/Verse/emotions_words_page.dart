@@ -84,7 +84,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Fear")),
+                            child: const Text("Fear")),
                         const SizedBox(
                           width: 8,
                         ),
@@ -106,7 +106,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Lonely")),
+                            child: const Text("Lonely")),
                         const SizedBox(
                           width: 8,
                         ),
@@ -128,7 +128,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Gratitude"))
+                            child: const Text("Gratitude"))
                       ],
                     ),
                     Row(
@@ -152,7 +152,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Encouraged")),
+                            child: const Text("Encouraged")),
                         const SizedBox(
                           width: 8,
                         ),
@@ -174,7 +174,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Angry")),
+                            child: const Text("Angry")),
                         const SizedBox(
                           width: 8,
                         ),
@@ -196,7 +196,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Joyful"))
+                            child: const Text("Joyful"))
                       ],
                     ),
                     Row(
@@ -220,7 +220,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Confused")),
+                            child: const Text("Confused")),
                         const SizedBox(
                           width: 8,
                         ),
@@ -242,7 +242,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Worried")),
+                            child: const Text("Worried")),
                         const SizedBox(
                           width: 8,
                         ),
@@ -264,7 +264,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 print(addedWords.toString());
                               });
                             },
-                            child: Text("Hopeful"))
+                            child: const Text("Hopeful"))
                       ],
                     ),
                     Row(
@@ -338,7 +338,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                     const SizedBox(
                       height: 30,
                     ),
-                    Container(
+                    SizedBox(
                       width: 160,
                       height: 50,
                       child: ElevatedButton(
@@ -352,9 +352,13 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             Navigator.of(context).push(
                               MaterialPageRoute(
                                 builder: (context) => CupertinoPageScaffold(
-                                    navigationBar: CupertinoNavigationBar(),
+                                    navigationBar:
+                                        const CupertinoNavigationBar(),
                                     child: VersePage(
-                                      verse: "Hello World i work",
+                                      verseTitle: "John 3:16",
+                                      verse:
+                                          "Hello World i work and I am a long sentence",
+                                      emotions: addedWords.toString(),
                                       parentContext: rootContext,
                                     )),
                               ),

@@ -7,7 +7,7 @@ class IntroPageThree extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.orange,
-      child: Center(
+      child: const Center(
           child: Text(
         "Build Habits with Reminders",
         style: TextStyle(fontWeight: FontWeight.bold),
