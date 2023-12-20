@@ -52,10 +52,10 @@ class _MyVerseTileState extends State<MyVerseTile> {
                   borderRadius: BorderRadius.circular(10),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.7),
+                      color: Colors.grey.withOpacity(0.65),
                       spreadRadius: 4,
-                      blurRadius: 6,
-                      offset: Offset(7, 5), // changes position of shadow
+                      blurRadius: 8,
+                      offset: Offset(0, 5), // changes position of shadow
                     ),
                   ]),
               margin: EdgeInsets.only(top: 20, left: 20, right: 20),

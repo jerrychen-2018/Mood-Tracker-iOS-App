@@ -47,6 +47,70 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
     );
   }
 
+  void resetWords() {
+    setState(() {
+      if (fearIsPressed) {
+        fearIsPressed = false;
+        addedWords.removeWhere((string) => string == "Fear");
+      }
+
+      if (lonelyIsPressed) {
+        lonelyIsPressed = false;
+        addedWords.removeWhere((string) => string == "Lonely");
+      }
+
+      if (gratitudeIsPressed) {
+        gratitudeIsPressed = false;
+        addedWords.removeWhere((string) => string == "Gratitude");
+      }
+
+      if (encouragedIsPressed) {
+        encouragedIsPressed = false;
+        addedWords.removeWhere((string) => string == "Encouraged");
+      }
+
+      if (angryIsPressed) {
+        angryIsPressed = false;
+        addedWords.removeWhere((string) => string == "Angry");
+      }
+
+      if (joyfulIsPressed) {
+        joyfulIsPressed = false;
+        addedWords.removeWhere((string) => string == "Joyful");
+      }
+
+      if (confusedIsPressed) {
+        confusedIsPressed = false;
+        addedWords.removeWhere((string) => string == "Confused");
+      }
+
+      if (worriedIsPressed) {
+        worriedIsPressed = false;
+        addedWords.removeWhere((string) => string == "Worried");
+      }
+
+      if (hopefulIsPressed) {
+        hopefulIsPressed = false;
+        addedWords.removeWhere((string) => string == "Hopeful");
+      }
+
+      if (enviousIsPressed) {
+        enviousIsPressed = false;
+        addedWords.removeWhere((string) => string == "Envious");
+      }
+
+      if (disappointedIsPressed) {
+        disappointedIsPressed = false;
+        addedWords.removeWhere((string) => string == "Disappointed");
+      }
+
+      if (otherIsPressed) {
+        otherIsPressed = false;
+        addedWords.removeWhere((string) => string == "Other");
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext rootContext) {
     return Material(
@@ -360,18 +424,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                       height: 50,
                       child: ElevatedButton(
                           onPressed: () async {
-                            if (!fearIsPressed &&
-                                !joyfulIsPressed &&
-                                !lonelyIsPressed &&
-                                !gratitudeIsPressed &&
-                                !encouragedIsPressed &&
-                                !angryIsPressed &&
-                                !confusedIsPressed &&
-                                !worriedIsPressed &&
-                                !hopefulIsPressed &&
-                                !enviousIsPressed &&
-                                !disappointedIsPressed &&
-                                !otherIsPressed) {
+                            if (addedWords.isEmpty) {
                               noWordsMessage();
                             } else {
                               // HTTP Request
@@ -384,6 +437,8 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   as Map<String, dynamic>;
                               finalVerseTitle = decoded['verseTitle'];
                               finalVerse = decoded['verse'];
+
+                              resetWords();
 
                               if (!context.mounted) return;
                               Navigator.of(context).push(
