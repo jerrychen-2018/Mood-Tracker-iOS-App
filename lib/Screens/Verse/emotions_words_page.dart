@@ -29,7 +29,8 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
   bool enviousIsPressed = false;
   bool disappointedIsPressed = false;
   bool otherIsPressed = false;
-  String finalResponse = "";
+  String finalVerseTitle = "";
+  String finalVerse = "";
 
   @override
   Widget build(BuildContext rootContext) {
@@ -344,9 +345,14 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                       child: ElevatedButton(
                           onPressed: () async {
                             const url = 'http://127.0.0.1:5000/';
-                            final response = await http.post(Uri.parse(url),
+                            var response = await http.post(Uri.parse(url),
                                 body: json.encode(
                                     {'emotions': addedWords.toString()}));
+                            response = await http.get(Uri.parse(url));
+                            final decoded = json.decode(response.body)
+                                as Map<String, dynamic>;
+                            finalVerseTitle = decoded['verseTitle'];
+                            finalVerse = decoded['verse'];
 
                             if (!context.mounted) return;
                             Navigator.of(context).push(
@@ -355,9 +361,8 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                     navigationBar:
                                         const CupertinoNavigationBar(),
                                     child: VersePage(
-                                      verseTitle: "John 3:16",
-                                      verse:
-                                          "Hello World i work and I am a long sentence",
+                                      verseTitle: finalVerseTitle,
+                                      verse: finalVerse,
                                       emotions: addedWords.toString(),
                                       parentContext: rootContext,
                                     )),
@@ -380,14 +385,19 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                           final decoded = json.decode(response.body)
                               as Map<String, dynamic>;
                           setState(() {
-                            finalResponse = decoded['emotions'];
+                            finalVerseTitle = decoded['verseTitle'];
+                            finalVerse = decoded['verse'];
                           });
                         },
                         child: const Text('get emotions')),
                     Text(
-                      finalResponse,
+                      finalVerseTitle,
                       style: const TextStyle(fontSize: 24),
-                    )
+                    ),
+                    Text(
+                      finalVerse,
+                      style: const TextStyle(fontSize: 24),
+                    ),
                   ],
                 ),
               ),

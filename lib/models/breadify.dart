@@ -2,11 +2,6 @@ import 'package:flutter/material.dart';
 import "package:ebbnflow/services/sql_helper.dart";
 
 class Breadify extends ChangeNotifier {
-  // Future<List<Map<String, dynamic>>> _currentList() async {
-  //   final data = await SQLHelper.getItems();
-  //   return data;
-  // }
-
   // user scripture list
   List<Map<String, dynamic>> _userEntries = [];
 

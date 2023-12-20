@@ -19,32 +19,47 @@ class VersePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<Breadify>(
         builder: (context, value, child) => Container(
-              color: Colors.cyan[600],
+              color: Colors.white,
               padding: EdgeInsets.only(left: 55, right: 55),
               //alignment: Alignment(0, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Expanded(
-                      child: AnimatedTextKit(
-                        animatedTexts: [
-                          TyperAnimatedText(
-                            verse,
-                            textStyle: const TextStyle(
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            speed: const Duration(milliseconds: 75),
-                          ),
-                        ],
-                        totalRepeatCount: 4,
-                        pause: const Duration(milliseconds: 1000),
-                        displayFullTextOnTap: true,
-                        stopPauseOnTap: true,
-                      ),
+                  Text(
+                    verseTitle,
+                    style: const TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                  ]),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: AnimatedTextKit(
+                              animatedTexts: [
+                                TyperAnimatedText(
+                                  verse,
+                                  textStyle: const TextStyle(
+                                    fontSize: 24.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                  speed: const Duration(milliseconds: 75),
+                                ),
+                              ],
+                              totalRepeatCount: 1,
+                              pause: const Duration(milliseconds: 1000),
+                              displayFullTextOnTap: true,
+                              stopPauseOnTap: true,
+                            ),
+                          ),
+                        ]),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
                   ElevatedButton(
                     onPressed: () async {
                       DateTime now = DateTime.now();

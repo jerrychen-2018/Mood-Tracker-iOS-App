@@ -1,6 +1,6 @@
 import 'package:ebbnflow/components/my_verse_tile_delete.dart';
+import 'package:readmore/readmore.dart';
 import 'package:flutter/cupertino.dart';
-import "package:ebbnflow/services/sql_helper.dart";
 import 'package:provider/provider.dart';
 import 'package:ebbnflow/models/breadify.dart';
 import "package:flutter/material.dart";
@@ -64,46 +64,47 @@ class _MyVerseTileState extends State<MyVerseTile> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.itemAtIndex['verseTitle'],
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 16),
-                      ),
-                      Text(
-                        widget.itemAtIndex['verse'],
-                        style: TextStyle(fontSize: 12),
-                      ),
-                      Text(
-                        widget.itemAtIndex['emotions'],
-                        style: TextStyle(fontSize: 12),
-                        textAlign: TextAlign.left,
-                      ),
-                      Text(
-                        widget.itemAtIndex['date'],
-                        style: TextStyle(fontSize: 12),
-                        textAlign: TextAlign.right,
-                      ),
-                    ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.itemAtIndex['verseTitle'],
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 16),
+                        ),
+                        // Text(
+                        //   widget.itemAtIndex['verse'],
+                        //   style: const TextStyle(fontSize: 12),
+                        // ),
+                        ReadMoreText(
+                          widget.itemAtIndex['verse'],
+                          trimLines: 2,
+                          colorClickableText: Colors.pink,
+                          trimMode: TrimMode.Line,
+                          trimCollapsedText: 'Show more',
+                          trimExpandedText: 'Show less',
+                          moreStyle: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Text(
+                          widget.itemAtIndex['emotions'],
+                          style: const TextStyle(fontSize: 12),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          widget.itemAtIndex['date'],
+                          style: const TextStyle(fontSize: 12),
+                          textAlign: TextAlign.right,
+                        ),
+                      ],
+                    ),
                   ),
                   MyVerseTileDelete(onTap: deleteEntry)
                 ],
               ),
             ));
-
-    // Card(
-    //             color: Colors.white,
-    //             margin: EdgeInsets.all(20),
-    //             child: ListTile(
-    //               title: Text(listview[index]['verseTitle']),
-    //               subtitle: Text(listview[index]['verse'] +
-    //                   " " +
-    //                   listview[index]['emotions'] +
-    //                   " " +
-    //                   listview[index]['date']),
-    //             ),
-    //           ),;
   }
 }

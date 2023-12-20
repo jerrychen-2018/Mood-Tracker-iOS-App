@@ -1,5 +1,4 @@
 import "package:ebbnflow/components/my_verse_tile.dart";
-import "package:ebbnflow/services/sql_helper.dart";
 import "package:ebbnflow/Screens/Verse/emotions_words_page.dart";
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
@@ -14,25 +13,7 @@ class VerseList extends StatefulWidget {
 }
 
 class _VerseListState extends State<VerseList> {
-  List<Map<String, dynamic>> listview = [];
-
-  bool _isLoading = true;
-
-  void _refreshListView() async {
-    final data = await SQLHelper.getItems();
-    setState(() {
-      listview = data;
-      _isLoading = false;
-    });
-  }
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _refreshListView();
-  //   print("...number of items ${listview.length}");
-  //   print("...items ${listview.toString()}");
-  // }
+  //List<Map<String, dynamic>> listview = [];
 
   Future<void> addVerse() async {
     final result = await showCupertinoModalBottomSheet(
@@ -41,24 +22,20 @@ class _VerseListState extends State<VerseList> {
         backgroundColor: Colors.transparent,
         builder: (context) => const EmotionWordsPage());
 
-    print("...number of items ${listview.length}");
-    print("...items ${listview.toString()}");
+    // print("...number of items ${listview.length}");
+    // print("...items ${listview.toString()}");
   }
-
-  // void _deleteItem(int id) async {
-  //   await SQLHelper.deleteItem(id);
-  //   _refreshListView();
-  // }
-
-  // String emotionsToString()
 
   @override
   Widget build(BuildContext context) {
     return Consumer<Breadify>(
         builder: (context, value, child) => Scaffold(
               appBar: AppBar(
-                title: const Text("Scripture List"),
-                leading: null,
+                centerTitle: false,
+                title: const Text("Your Scripture List",
+                    style:
+                        TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
+                automaticallyImplyLeading: false,
               ),
               body: SingleChildScrollView(
                 child: Padding(
@@ -67,13 +44,6 @@ class _VerseListState extends State<VerseList> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      const Text(
-                        "Your List",
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                            fontSize: 28, fontWeight: FontWeight.bold),
-                      ),
-
                       // AnimatedList(
                       //     shrinkWrap: true,
                       //     physics: const NeverScrollableScrollPhysics(),
