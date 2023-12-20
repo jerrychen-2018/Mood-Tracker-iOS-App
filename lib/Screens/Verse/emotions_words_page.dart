@@ -32,6 +32,21 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
   String finalVerseTitle = "";
   String finalVerse = "";
 
+  void noWordsMessage() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return const AlertDialog(
+          backgroundColor: Colors.deepOrange,
+          title: Text(
+            'No words were chosen, please choose at least 1 word.',
+            style: TextStyle(color: Colors.white),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext rootContext) {
     return Material(
@@ -339,35 +354,52 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                     const SizedBox(
                       height: 30,
                     ),
+                    // Submit Button
                     SizedBox(
                       width: 160,
                       height: 50,
                       child: ElevatedButton(
                           onPressed: () async {
-                            const url = 'http://127.0.0.1:5000/';
-                            var response = await http.post(Uri.parse(url),
-                                body: json.encode(
-                                    {'emotions': addedWords.toString()}));
-                            response = await http.get(Uri.parse(url));
-                            final decoded = json.decode(response.body)
-                                as Map<String, dynamic>;
-                            finalVerseTitle = decoded['verseTitle'];
-                            finalVerse = decoded['verse'];
+                            if (!fearIsPressed &&
+                                !joyfulIsPressed &&
+                                !lonelyIsPressed &&
+                                !gratitudeIsPressed &&
+                                !encouragedIsPressed &&
+                                !angryIsPressed &&
+                                !confusedIsPressed &&
+                                !worriedIsPressed &&
+                                !hopefulIsPressed &&
+                                !enviousIsPressed &&
+                                !disappointedIsPressed &&
+                                !otherIsPressed) {
+                              noWordsMessage();
+                            } else {
+                              // HTTP Request
+                              const url = 'http://127.0.0.1:5000/';
+                              var response = await http.post(Uri.parse(url),
+                                  body: json.encode(
+                                      {'emotions': addedWords.toString()}));
+                              response = await http.get(Uri.parse(url));
+                              final decoded = json.decode(response.body)
+                                  as Map<String, dynamic>;
+                              finalVerseTitle = decoded['verseTitle'];
+                              finalVerse = decoded['verse'];
 
-                            if (!context.mounted) return;
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => CupertinoPageScaffold(
-                                    navigationBar:
-                                        const CupertinoNavigationBar(),
-                                    child: VersePage(
-                                      verseTitle: finalVerseTitle,
-                                      verse: finalVerse,
-                                      emotions: addedWords.toString(),
-                                      parentContext: rootContext,
-                                    )),
-                              ),
-                            );
+                              if (!context.mounted) return;
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => CupertinoPageScaffold(
+                                      navigationBar:
+                                          const CupertinoNavigationBar(),
+                                      child: VersePage(
+                                        verseTitle: finalVerseTitle,
+                                        verse: finalVerse,
+                                        emotions: addedWords.toString(),
+                                        parentContext: rootContext,
+                                      )),
+                                ),
+                              );
+                            }
                           },
                           child: const Row(
                             children: [
@@ -376,27 +408,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                               FaIcon(FontAwesomeIcons.circleArrowRight)
                             ],
                           )),
-                    ),
-                    const Gap(20),
-                    TextButton(
-                        onPressed: () async {
-                          const url = 'http://127.0.0.1:5000/';
-                          final response = await http.get(Uri.parse(url));
-                          final decoded = json.decode(response.body)
-                              as Map<String, dynamic>;
-                          setState(() {
-                            finalVerseTitle = decoded['verseTitle'];
-                            finalVerse = decoded['verse'];
-                          });
-                        },
-                        child: const Text('get emotions')),
-                    Text(
-                      finalVerseTitle,
-                      style: const TextStyle(fontSize: 24),
-                    ),
-                    Text(
-                      finalVerse,
-                      style: const TextStyle(fontSize: 24),
                     ),
                   ],
                 ),
