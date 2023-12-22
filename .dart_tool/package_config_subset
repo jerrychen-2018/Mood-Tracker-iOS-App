@@ -142,6 +142,10 @@ flutter_svg
 2.19
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/flutter_svg-2.0.9/
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/flutter_svg-2.0.9/lib/
+flutter_timezone
+2.12
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/flutter_timezone-1.0.8/
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/flutter_timezone-1.0.8/lib/
 font_awesome_flutter
 3.0
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/font_awesome_flutter-10.6.0/
@@ -274,6 +278,10 @@ readmore
 2.16
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/readmore-2.2.0/
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/readmore-2.2.0/lib/
+rxdart
+2.12
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/rxdart-0.27.7/
+file:///Users/jerrychen/.pub-cache/hosted/pub.dev/rxdart-0.27.7/lib/
 smooth_page_indicator
 2.12
 file:///Users/jerrychen/.pub-cache/hosted/pub.dev/smooth_page_indicator-1.1.0/

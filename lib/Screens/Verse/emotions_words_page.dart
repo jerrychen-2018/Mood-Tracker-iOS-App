@@ -14,13 +14,12 @@ class EmotionWordsPage extends StatefulWidget {
 }
 
 class _EmotionWordsPageState extends State<EmotionWordsPage> {
-  //final List<String> words = const <String>["Fear", "Anger", "Lonely", "Sad"];
   List<String> addedWords = [];
   int numChosen = 0;
   bool fearIsPressed = false;
   bool lonelyIsPressed = false;
   bool gratitudeIsPressed = false;
-  bool encouragedIsPressed = false;
+  bool discouragedIsPressed = false;
   bool angryIsPressed = false;
   bool joyfulIsPressed = false;
   bool confusedIsPressed = false;
@@ -64,9 +63,9 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
         addedWords.removeWhere((string) => string == "Gratitude");
       }
 
-      if (encouragedIsPressed) {
-        encouragedIsPressed = false;
-        addedWords.removeWhere((string) => string == "Encouraged");
+      if (discouragedIsPressed) {
+        discouragedIsPressed = false;
+        addedWords.removeWhere((string) => string == "Discouraged");
       }
 
       if (angryIsPressed) {
@@ -216,23 +215,23 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                       children: [
                         OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                                backgroundColor: encouragedIsPressed
+                                backgroundColor: discouragedIsPressed
                                     ? Colors.lightBlue
                                     : Colors.white),
                             onPressed: () {
                               setState(() {
-                                encouragedIsPressed = !encouragedIsPressed;
-                                if (encouragedIsPressed) {
-                                  addedWords.add("Encouraged");
+                                discouragedIsPressed = !discouragedIsPressed;
+                                if (discouragedIsPressed) {
+                                  addedWords.add("Discouraged");
                                 } else {
                                   addedWords.removeWhere(
-                                      (string) => string == "Encouraged");
+                                      (string) => string == "Discouraged");
                                 }
                                 // for testing purposes
                                 print(addedWords.toString());
                               });
                             },
-                            child: const Text("Encouraged")),
+                            child: const Text("Discouraged")),
                         const SizedBox(
                           width: 8,
                         ),
