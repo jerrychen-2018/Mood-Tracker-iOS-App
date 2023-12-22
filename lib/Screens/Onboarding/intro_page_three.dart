@@ -1,5 +1,5 @@
 import "package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart";
-import "package:ebbnflow/Screens/test_screen.dart";
+import "package:ebbnflow/components/TimePicker/time_picker.dart";
 import "package:ebbnflow/services/local_notification_service.dart";
 import "package:flutter/material.dart";
 
@@ -16,9 +16,12 @@ class _IntroPageThreeState extends State<IntroPageThree> {
   @override
   void initState() {
     service = LocalNotificationService();
-    service.setup();
     listenToNotification();
     super.initState();
+  }
+
+  void openTimePicker() {
+    service.setup();
   }
 
   @override
@@ -26,11 +29,49 @@ class _IntroPageThreeState extends State<IntroPageThree> {
     return SafeArea(
       child: Center(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
+          const Text(
             "Build Habits with Reminders",
             style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          GestureDetector(
+            onTap: openTimePicker,
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Colors.cyan[600],
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.65),
+                      spreadRadius: 4,
+                      blurRadius: 8,
+                      offset: Offset(0, 5), // changes position of shadow
+                    ),
+                  ]),
+              margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+              padding: EdgeInsets.all(20),
+              child: const Row(
+                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Stack(children: [
+                    Icon(Icons.circle_notifications, fill: 0.5, size: 35),
+                  ]),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    "7:00 AM",
+                    style: TextStyle(
+                        fontSize: 32,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
           ),
           ElevatedButton(
               onPressed: () async {

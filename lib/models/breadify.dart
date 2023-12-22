@@ -5,12 +5,27 @@ class Breadify extends ChangeNotifier {
   // user scripture list
   List<Map<String, dynamic>> _userEntries = [];
 
-  List<Map<String, dynamic>> kappa = [];
+  int _scheduledHour = 0;
+  int _scheduledMinute = 0;
+  bool _scheduledAmPm = true;
 
   // get scripture list
   List<Map<String, dynamic>> get userEntries {
     refreshEntries();
     return _userEntries;
+  }
+
+  // get scheduled time, if any
+  int get scheduledHour {
+    return _scheduledHour;
+  }
+
+  int get scheduledMinute {
+    return _scheduledMinute;
+  }
+
+  bool get scheduledAmPm {
+    return _scheduledAmPm;
   }
 
   Future<void> refreshEntries() async {
