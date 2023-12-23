@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import "package:ebbnflow/services/sql_helper.dart";
-import 'package:shared_preferences/shared_preferences.dart';
 
 class Breadify extends ChangeNotifier {
   // user scripture list

@@ -2,6 +2,7 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:rxdart/subjects.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest_all.dart' as tz;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LocalNotificationService {
   LocalNotificationService();
@@ -49,25 +50,47 @@ class LocalNotificationService {
       {required int id,
       required String title,
       required String body,
-      required int seconds,
       required String payload}) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
     final details = await _notificationDetails();
+
+    String tz = prefs.getString('timezone') ?? "America/Los_Angeles";
+
     await _flutterLocalNotificationsPlugin.zonedSchedule(
         id,
         title,
         body,
-        tz.TZDateTime.from(
-            DateTime.now().add(Duration(seconds: seconds)), tz.local),
+        // tz.TZDateTime.from(
+        //     DateTime.now().add(Duration(seconds: seconds)), tz.local),
+        _nextInstanceOfTime(tz, prefs.getInt('hour') ?? 7,
+            prefs.getInt('minute') ?? 30, prefs.getInt('ampm') ?? 0),
         details,
         payload: payload,
         uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime);
+            UILocalNotificationDateInterpretation.absoluteTime,
+        matchDateTimeComponents: DateTimeComponents.time);
+  }
+
+  tz.TZDateTime _nextInstanceOfTime(
+      String timezone, int hour, int min, int ampm) {
+    final loc = tz.getLocation(timezone);
+    final tz.TZDateTime now = tz.TZDateTime.now(loc);
+    if ((ampm == 1) && (hour != 12)) {
+      hour += 12;
+    } else if ((ampm == 0) && (hour == 12)) {
+      hour = 0;
+    }
+    tz.TZDateTime scheduledDate =
+        tz.TZDateTime(loc, now.year, now.month, now.day, hour, min);
+
+    if (scheduledDate.isBefore(now)) {
+      scheduledDate = scheduledDate.add(const Duration(days: 1));
+    }
+    return scheduledDate;
   }
 
   void onDidReceiveLocalNotification(
       int id, String? title, String? body, String? payload) {
-    print('id $id');
-    print('payload $payload');
     if (payload != null && payload.isNotEmpty) {
       onNotificationClick.add(payload);
     }

@@ -71,10 +71,18 @@ class _MyWidgetState extends State<OnboardingPage> {
                   onLastPage
                       ? GestureDetector(
                           child: const Text("Done"),
-                          onTap: () {
+                          onTap: () async {
                             service = LocalNotificationService();
                             listenToNotification();
                             service.setup();
+
+                            await service.showScheduledNotificationWithPayload(
+                                id: 0,
+                                title: "Breadify",
+                                body: "How are you doing today?",
+                                payload: "payload of notification");
+
+                            if (!context.mounted) return null;
                             showCupertinoModalBottomSheet(
                                 context: context,
                                 builder: (context) =>

@@ -123,12 +123,6 @@ class _IntroPageThreeState extends State<IntroPageThree> {
                         //   title: "HI",
                         //   body: "HI",
                         // );
-                        // await service.showScheduledNotificationWithPayload(
-                        //     id: 0,
-                        //     title: "HI",
-                        //     body: "HI",
-                        //     seconds: 2,
-                        //     payload: "payload");
                       },
                       child: Text("Button"))
                 ],
