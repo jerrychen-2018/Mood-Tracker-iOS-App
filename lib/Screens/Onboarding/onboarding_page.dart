@@ -9,6 +9,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import "package:ebbnflow/services/local_notification_service.dart";
 import "package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart";
 
+import 'package:ebbnflow/main.dart';
+
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
@@ -29,8 +31,10 @@ class _MyWidgetState extends State<OnboardingPage> {
   void onNotificationListener(String? payload) {
     if (payload != null && payload.isNotEmpty) {
       print('payload $payload');
-      Navigator.push(
-          context, MaterialPageRoute(builder: ((context) => BottomNavBar())));
+
+      navigatorKey.currentState?.pushNamed('/bottomnavbar');
+      // Navigator.push(
+      //     context, MaterialPageRoute(builder: ((context) => BottomNavBar())));
     }
   }
 
