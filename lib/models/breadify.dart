@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import "package:ebbnflow/services/sql_helper.dart";
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Breadify extends ChangeNotifier {
   // user scripture list
   List<Map<String, dynamic>> _userEntries = [];
 
-  int _scheduledHour = 0;
-  int _scheduledMinute = 0;
-  bool _scheduledAmPm = true;
+  int _scheduledHour = 7;
+  int _scheduledMinute = 30;
+  int _scheduledAmPm = 0;
 
   // get scripture list
   List<Map<String, dynamic>> get userEntries {
@@ -17,6 +18,7 @@ class Breadify extends ChangeNotifier {
 
   // get scheduled time, if any
   int get scheduledHour {
+    ;
     return _scheduledHour;
   }
 
@@ -24,7 +26,7 @@ class Breadify extends ChangeNotifier {
     return _scheduledMinute;
   }
 
-  bool get scheduledAmPm {
+  int get scheduledAmPm {
     return _scheduledAmPm;
   }
 
@@ -45,6 +47,22 @@ class Breadify extends ChangeNotifier {
 
   Future<void> removeEntryFromList(int id) async {
     await SQLHelper.deleteItem(id);
+    notifyListeners();
+  }
+
+  // set Time
+  void setHour(int sh) {
+    _scheduledHour = sh;
+    notifyListeners();
+  }
+
+  void setMinutes(int sm) {
+    _scheduledMinute = sm;
+    notifyListeners();
+  }
+
+  void setAmPm(int sap) {
+    _scheduledAmPm = sap;
     notifyListeners();
   }
 }

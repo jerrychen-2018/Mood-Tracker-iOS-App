@@ -6,6 +6,9 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import "package:ebbnflow/services/local_notification_service.dart";
+import "package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart";
+
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
@@ -14,9 +17,23 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _MyWidgetState extends State<OnboardingPage> {
+  late final LocalNotificationService service;
+
   // controller to keep track which page we're on
   final PageController _controller = PageController();
   bool onLastPage = false;
+
+  void listenToNotification() =>
+      service.onNotificationClick.stream.listen(onNotificationListener);
+
+  void onNotificationListener(String? payload) {
+    if (payload != null && payload.isNotEmpty) {
+      print('payload $payload');
+      Navigator.push(
+          context, MaterialPageRoute(builder: ((context) => BottomNavBar())));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +72,9 @@ class _MyWidgetState extends State<OnboardingPage> {
                       ? GestureDetector(
                           child: const Text("Done"),
                           onTap: () {
+                            service = LocalNotificationService();
+                            listenToNotification();
+                            service.setup();
                             showCupertinoModalBottomSheet(
                                 context: context,
                                 builder: (context) =>
