@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import "package:ebbnflow/services/local_notification_service.dart";
-import "package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart";
+//import "package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart";
 
 import 'package:ebbnflow/main.dart';
 
@@ -32,7 +32,8 @@ class _MyWidgetState extends State<OnboardingPage> {
     if (payload != null && payload.isNotEmpty) {
       print('payload $payload');
 
-      navigatorKey.currentState?.pushNamed('/bottomnavbar');
+      navigatorKey.currentState
+          ?.pushNamedAndRemoveUntil('/bottomnavbar', (route) => false);
       // Navigator.push(
       //     context, MaterialPageRoute(builder: ((context) => BottomNavBar())));
     }
@@ -80,6 +81,7 @@ class _MyWidgetState extends State<OnboardingPage> {
                             listenToNotification();
                             service.setup();
 
+                            service.deleteAllNotifications();
                             await service.showScheduledNotificationWithPayload(
                                 id: 0,
                                 title: "Breadify",

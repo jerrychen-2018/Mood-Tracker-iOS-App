@@ -59,9 +59,8 @@ class _TimePickerState extends State<TimePicker> {
                       onSelectedItemChanged: (selectedItem) async {
                         final SharedPreferences prefs =
                             await SharedPreferences.getInstance();
-                        print(selectedItem + 1);
+
                         if (context.mounted) {
-                          print("in mounted?");
                           Provider.of<Breadify>(context, listen: false)
                               .setHour(selectedItem + 1);
                         }
@@ -95,7 +94,7 @@ class _TimePickerState extends State<TimePicker> {
                       onSelectedItemChanged: (selectedItem) async {
                         final SharedPreferences prefs =
                             await SharedPreferences.getInstance();
-                        print(selectedItem);
+
                         prefs.setInt('minute', selectedItem);
                         if (context.mounted) {
                           Provider.of<Breadify>(context, listen: false)
@@ -126,7 +125,7 @@ class _TimePickerState extends State<TimePicker> {
                       onSelectedItemChanged: (selectedItem) async {
                         final SharedPreferences prefs =
                             await SharedPreferences.getInstance();
-                        print(selectedItem);
+
                         prefs.setInt('ampm', selectedItem);
                         if (context.mounted) {
                           Provider.of<Breadify>(context, listen: false)

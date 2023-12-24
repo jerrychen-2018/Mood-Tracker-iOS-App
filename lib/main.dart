@@ -3,6 +3,7 @@ import 'package:ebbnflow/Screens/Home/home_page.dart';
 import 'package:ebbnflow/Screens/VerseList/verse_list.dart';
 import 'package:ebbnflow/models/breadify.dart';
 import 'package:ebbnflow/Screens/Welcome/welcome_page.dart';
+import 'package:ebbnflow/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
@@ -78,6 +79,8 @@ class _MyAppState extends State<MyApp> {
         builder: (context, child) => MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Breadify',
+              theme: lightMode,
+              darkTheme: darkMode,
               initialRoute: '/welcome',
               onGenerateRoute: Router.generateRoute,
               navigatorKey: navigatorKey,

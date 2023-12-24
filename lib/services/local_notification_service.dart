@@ -96,6 +96,10 @@ class LocalNotificationService {
     }
   }
 
+  Future<void> deleteAllNotifications() async {
+    await _flutterLocalNotificationsPlugin.cancelAll();
+  }
+
   // void onSelectNotification(String? payload) {
   //   print('payload $payload');
   // }
