@@ -414,7 +414,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                               finalVerseTitle = decoded['verseTitle'];
                               finalVerse = decoded['verse'];
 
-                              print(addedWords.toString());
                               if (!context.mounted) return;
                               Navigator.of(context).push(
                                 MaterialPageRoute(

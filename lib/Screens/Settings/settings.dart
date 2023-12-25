@@ -38,32 +38,33 @@ class _SettingsState extends State<Settings> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Color.fromRGBO(112, 203, 255, 1),
           centerTitle: false,
           title: const Text("Settings",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
           automaticallyImplyLeading: false,
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text("Schedule Daily Notificiation"),
-            const MyTimePickerButton(),
-            ElevatedButton(
-                onPressed: () async {
-                  // service ??= LocalNotificationService();
-                  listenToNotification();
-                  service.setup();
-                  service.deleteAllNotifications();
-                  await service.showScheduledNotificationWithPayload(
-                      id: 0,
-                      title: "Breadify",
-                      body: "How are you doing today?",
-                      payload: "payload of notification");
-                },
-                child: Text("Save Changes"))
-          ],
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text("Schedule Daily Notificiation"),
+              const MyTimePickerButton(),
+              ElevatedButton(
+                  onPressed: () async {
+                    // service ??= LocalNotificationService();
+                    listenToNotification();
+                    service.setup();
+                    service.deleteAllNotifications();
+                    await service.showScheduledNotificationWithPayload(
+                        id: 0,
+                        title: "Breadify",
+                        body: "How are you doing today?",
+                        payload: "payload of notification");
+                  },
+                  child: Text("Save Changes"))
+            ],
+          ),
         ),
       ),
     );

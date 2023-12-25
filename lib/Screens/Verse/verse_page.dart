@@ -20,7 +20,7 @@ class VersePage extends StatelessWidget {
     return Consumer<Breadify>(
         builder: (context, value, child) => Container(
               color: Colors.white,
-              padding: EdgeInsets.only(left: 55, right: 55),
+              padding: const EdgeInsets.only(left: 55, right: 55),
               //alignment: Alignment(0, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,9 +65,7 @@ class VersePage extends StatelessWidget {
                       DateTime now = DateTime.now();
                       String formattedDate =
                           DateFormat.yMMMMd('en_US').add_jm().format(now);
-                      // await SQLHelper.createItem(
-                      //     verseTitle, verse, formattedDate, emotions);
-                      print(emotions);
+
                       Provider.of<Breadify>(context, listen: false)
                           .addEntryToList(
                               verseTitle, verse, formattedDate, emotions);

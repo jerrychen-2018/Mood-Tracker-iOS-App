@@ -15,11 +15,11 @@ class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
   @override
-  State<OnboardingPage> createState() => _MyWidgetState();
+  State<OnboardingPage> createState() => _OnboardingPageState();
 }
 
-class _MyWidgetState extends State<OnboardingPage> {
-  late final LocalNotificationService service;
+class _OnboardingPageState extends State<OnboardingPage> {
+  final LocalNotificationService service = LocalNotificationService();
 
   // controller to keep track which page we're on
   final PageController _controller = PageController();
@@ -37,6 +37,12 @@ class _MyWidgetState extends State<OnboardingPage> {
       // Navigator.push(
       //     context, MaterialPageRoute(builder: ((context) => BottomNavBar())));
     }
+  }
+
+  @override
+  void didUpdateWidget(OnboardingPage oldWidget) {
+    // TODO: implement dispose
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -77,7 +83,7 @@ class _MyWidgetState extends State<OnboardingPage> {
                       ? GestureDetector(
                           child: const Text("Done"),
                           onTap: () async {
-                            service = LocalNotificationService();
+                            //service = LocalNotificationService();
                             listenToNotification();
                             service.setup();
 

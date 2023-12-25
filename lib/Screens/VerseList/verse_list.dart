@@ -31,7 +31,6 @@ class _VerseListState extends State<VerseList> {
     return Consumer<Breadify>(
         builder: (context, value, child) => Scaffold(
               appBar: AppBar(
-                backgroundColor: Color.fromRGBO(112, 203, 255, 1),
                 centerTitle: false,
                 title: const Text("Your Scripture List",
                     style:

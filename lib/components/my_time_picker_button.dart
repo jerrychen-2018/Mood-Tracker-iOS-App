@@ -67,10 +67,10 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
                     value.scheduledAmPm);
               },
               child: Container(
-                height: 100,
-                width: 300,
+                height: 80,
+                width: 250,
                 decoration: BoxDecoration(
-                    color: Colors.cyan[600],
+                    color: Color.fromRGBO(56, 129, 172, 1),
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
@@ -80,10 +80,10 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
                         offset: Offset(0, 5), // changes position of shadow
                       ),
                     ]),
-                margin: EdgeInsets.all(30),
-                padding: EdgeInsets.all(20),
+                margin: EdgeInsets.all(20),
+                padding: EdgeInsets.all(10),
                 child: Row(
-                  //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const Stack(children: [
@@ -96,9 +96,7 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
                       "${value.scheduledHour}:${(value.scheduledMinute < 10) ? '0${value.scheduledMinute.toString()}' : value.scheduledMinute.toString()} ${(value.scheduledAmPm == 0) ? 'AM' : 'PM'}",
                       //"${currHour.toString()}:${(currMinute < 10) ? '0${currMinute.toString()}' : currMinute.toString()} ${(currAmPm == 0) ? 'AM' : 'PM'}",
                       style: const TextStyle(
-                          fontSize: 32,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold),
+                          fontSize: 32, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
