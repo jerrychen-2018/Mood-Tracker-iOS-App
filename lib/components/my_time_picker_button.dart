@@ -40,24 +40,6 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
   }
 
   void openTimePicker(int sh, int sm, int sap) async {
-    // showCupertinoModalPopup(
-    //     context: context,
-    //     builder: (context) =>
-    // CupertinoActionSheet(
-    //       actions: [
-    //         TimePicker(
-    //           selectedHour: sh,
-    //           selectedMinute: sm,
-    //           selectedAmPm: sap,
-    //         )
-    //       ],
-    //       cancelButton: CupertinoActionSheetAction(
-    //         child: Text('Done'),
-    //         onPressed: () {
-    //           Navigator.pop(context);
-    //         },
-    //       ),
-    //     ))
     await showCupertinoModalBottomSheet(
         expand: true,
         context: context,
@@ -81,18 +63,19 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
                 height: 80,
                 width: 250,
                 decoration: BoxDecoration(
-                    color: Color.fromRGBO(56, 129, 172, 1),
+                    color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.black.withOpacity(0.4),
+                        color: Colors.black.withOpacity(0.2),
                         spreadRadius: 4,
-                        blurRadius: 8,
-                        offset: Offset(0, 5), // changes position of shadow
+                        blurRadius: 6,
+                        offset:
+                            const Offset(0, 5), // changes position of shadow
                       ),
                     ]),
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(10),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -105,9 +88,8 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
                     ),
                     Text(
                       "${value.scheduledHour}:${(value.scheduledMinute < 10) ? '0${value.scheduledMinute.toString()}' : value.scheduledMinute.toString()} ${(value.scheduledAmPm == 0) ? 'AM' : 'PM'}",
-                      //"${currHour.toString()}:${(currMinute < 10) ? '0${currMinute.toString()}' : currMinute.toString()} ${(currAmPm == 0) ? 'AM' : 'PM'}",
                       style: const TextStyle(
-                          fontSize: 32, fontWeight: FontWeight.bold),
+                          fontSize: 32, fontWeight: FontWeight.w600),
                     ),
                   ],
                 ),

@@ -2,7 +2,6 @@ import "package:ebbnflow/Screens/Settings/settings.dart";
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import "package:ebbnflow/Screens/VerseList/verse_list.dart";
 import "package:ebbnflow/Screens/Verse/emotions_words_page.dart";
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import "package:flutter/material.dart";
 
@@ -29,9 +28,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
         context: context,
         backgroundColor: Colors.transparent,
         builder: (context) => const EmotionWordsPage());
-
-    // print("...number of items ${listview.length}");
-    // print("...items ${listview.toString()}");
   }
 
   @override
@@ -44,7 +40,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             color: Colors.black.withOpacity(0.6),
             spreadRadius: 5,
             blurRadius: 10,
-            offset: Offset(0, 5), // changes position of shadow
+            offset: const Offset(0, 5), // changes position of shadow
           ),
         ]),
         child: Padding(
@@ -72,6 +68,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
         child: FloatingActionButton(
           onPressed: addVerse,
           shape: const CircleBorder(),
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          elevation: 8,
           child: const Icon(Icons.add),
         ),
       ),

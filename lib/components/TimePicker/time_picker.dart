@@ -109,9 +109,11 @@ class _TimePickerState extends State<TimePicker> {
                           Navigator.pop(context);
                         }
                       },
-                      child: const Text(
+                      child: Text(
                         "Save",
-                        style: TextStyle(fontSize: 18),
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: Theme.of(context).colorScheme.secondary),
                       )),
                   const SizedBox(
                     width: 10,

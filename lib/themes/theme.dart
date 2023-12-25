@@ -5,7 +5,9 @@ ThemeData lightMode = ThemeData(
     appBarTheme: const AppBarTheme(color: Color.fromRGBO(112, 203, 255, 1)),
     colorScheme: const ColorScheme.light(
         background: Color.fromRGBO(112, 203, 255, 1),
-        primary: Color.fromRGBO(56, 129, 172, 1),
+        primary:
+            Color.fromRGBO(255, 145, 77, 1), //Color.fromRGBO(41, 112, 154, 1),
+
         secondary: Color.fromRGBO(33, 93, 128, 1)));
 
 ThemeData darkMode = ThemeData(
@@ -14,5 +16,5 @@ ThemeData darkMode = ThemeData(
     iconTheme: IconThemeData(color: Colors.white),
     colorScheme: ColorScheme.dark(
         background: Colors.grey.shade800,
-        primary: Colors.white,
+        primary: const Color.fromARGB(255, 11, 14, 52),
         secondary: Colors.white));

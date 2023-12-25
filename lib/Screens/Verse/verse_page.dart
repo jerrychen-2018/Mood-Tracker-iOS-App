@@ -18,33 +18,36 @@ class VersePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<Breadify>(
-        builder: (context, value, child) => Container(
-              color: Colors.white,
-              padding: const EdgeInsets.only(left: 55, right: 55),
-              //alignment: Alignment(0, 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    verseTitle,
-                    style: const TextStyle(
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold,
+        builder: (context, value, child) => SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    const SizedBox(
+                      height: 100,
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                    Text(
+                      verseTitle,
+                      style: const TextStyle(
+                        fontSize: 24.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
+                          Container(
+                            width: 300,
                             child: AnimatedTextKit(
                               animatedTexts: [
                                 TyperAnimatedText(
                                   verse,
                                   textStyle: const TextStyle(
-                                    fontSize: 24.0,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.w300,
                                   ),
                                   speed: const Duration(milliseconds: 75),
                                 ),
@@ -56,26 +59,29 @@ class VersePage extends StatelessWidget {
                             ),
                           ),
                         ]),
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  ElevatedButton(
-                    onPressed: () async {
-                      DateTime now = DateTime.now();
-                      String formattedDate =
-                          DateFormat.yMMMMd('en_US').add_jm().format(now);
+                    const SizedBox(
+                      height: 50,
+                    ),
+                    ElevatedButton(
+                      onPressed: () async {
+                        DateTime now = DateTime.now();
+                        String formattedDate =
+                            DateFormat.yMMMMd('en_US').add_jm().format(now);
 
-                      Provider.of<Breadify>(context, listen: false)
-                          .addEntryToList(
-                              verseTitle, verse, formattedDate, emotions);
+                        Provider.of<Breadify>(context, listen: false)
+                            .addEntryToList(
+                                verseTitle, verse, formattedDate, emotions);
 
-                      if (!context.mounted) return;
-                      Navigator.of(parentContext).pop();
-                    },
-                    child: const Text('Exit'),
-                  ),
-                ],
+                        if (!context.mounted) return;
+                        Navigator.of(parentContext).pop();
+                      },
+                      child: const Text('Done'),
+                    ),
+                    const SizedBox(
+                      height: 50,
+                    ),
+                  ],
+                ),
               ),
             ));
   }

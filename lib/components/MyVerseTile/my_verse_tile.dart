@@ -59,7 +59,7 @@ class _MyVerseTileState extends State<MyVerseTile> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.cyan[600],
+                    color: Theme.of(context).colorScheme.primary,
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
