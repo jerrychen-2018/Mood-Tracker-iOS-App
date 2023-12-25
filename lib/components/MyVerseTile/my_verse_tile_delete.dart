@@ -11,7 +11,7 @@ class MyVerseTileDelete extends StatelessWidget {
       onTap: onTap,
       child: const Icon(
         Icons.cancel,
-        color: Colors.white,
+        color: Color.fromRGBO(56, 129, 172, 1),
       ),
     );
   }

@@ -3,6 +3,7 @@ import "package:ebbnflow/components/TimePicker/time_picker.dart";
 import 'package:provider/provider.dart';
 import 'package:ebbnflow/models/breadify.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
@@ -38,23 +39,33 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
     Provider.of<Breadify>(context, listen: false).setAmPm(currAmPm);
   }
 
-  void openTimePicker(int sh, int sm, int sap) {
-    showCupertinoModalPopup(
+  void openTimePicker(int sh, int sm, int sap) async {
+    // showCupertinoModalPopup(
+    //     context: context,
+    //     builder: (context) =>
+    // CupertinoActionSheet(
+    //       actions: [
+    //         TimePicker(
+    //           selectedHour: sh,
+    //           selectedMinute: sm,
+    //           selectedAmPm: sap,
+    //         )
+    //       ],
+    //       cancelButton: CupertinoActionSheetAction(
+    //         child: Text('Done'),
+    //         onPressed: () {
+    //           Navigator.pop(context);
+    //         },
+    //       ),
+    //     ))
+    await showCupertinoModalBottomSheet(
+        expand: true,
         context: context,
-        builder: (context) => CupertinoActionSheet(
-              actions: [
-                TimePicker(
-                  selectedHour: sh,
-                  selectedMinute: sm,
-                  selectedAmPm: sap,
-                )
-              ],
-              cancelButton: CupertinoActionSheetAction(
-                child: Text('Done'),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
+        // backgroundColor: Colors.transparent,
+        builder: (context) => TimePicker(
+              selectedHour: sh,
+              selectedMinute: sm,
+              selectedAmPm: sap,
             ));
   }
 
