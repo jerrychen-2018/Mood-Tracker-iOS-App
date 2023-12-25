@@ -67,18 +67,20 @@ class _MyTimePickerButtonState extends State<MyTimePickerButton> {
                     value.scheduledAmPm);
               },
               child: Container(
+                height: 100,
+                width: 300,
                 decoration: BoxDecoration(
                     color: Colors.cyan[600],
                     borderRadius: BorderRadius.circular(10),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(0.65),
+                        color: Colors.black.withOpacity(0.4),
                         spreadRadius: 4,
                         blurRadius: 8,
                         offset: Offset(0, 5), // changes position of shadow
                       ),
                     ]),
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
+                margin: EdgeInsets.all(30),
                 padding: EdgeInsets.all(20),
                 child: Row(
                   //mainAxisAlignment: MainAxisAlignment.spaceBetween,

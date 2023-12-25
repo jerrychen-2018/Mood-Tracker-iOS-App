@@ -135,7 +135,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                     ),
                     const Text(
-                      "how you're feeling today?",
+                      "how you're feeling now?",
                       style:
                           TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                     ),
@@ -159,8 +159,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Fear");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Fear")),
@@ -181,8 +179,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Lonely");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Lonely")),
@@ -203,8 +199,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Gratitude");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Gratitude"))
@@ -227,8 +221,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Discouraged");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Discouraged")),
@@ -249,8 +241,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Angry");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Angry")),
@@ -271,8 +261,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Joyful");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Joyful"))
@@ -295,8 +283,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Confused");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Confused")),
@@ -317,8 +303,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Worried");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Worried")),
@@ -339,8 +323,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Hopeful");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Hopeful"))
@@ -363,8 +345,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Envious");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Envious")),
@@ -385,8 +365,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Disappointed");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Disappointed")),
@@ -407,8 +385,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                   addedWords.removeWhere(
                                       (string) => string == "Other");
                                 }
-                                // for testing purposes
-                                print(addedWords.toString());
                               });
                             },
                             child: const Text("Other"))
@@ -427,6 +403,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                               noWordsMessage();
                             } else {
                               // HTTP Request
+
                               const url = 'http://127.0.0.1:5000/';
                               var response = await http.post(Uri.parse(url),
                                   body: json.encode(
@@ -437,8 +414,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                               finalVerseTitle = decoded['verseTitle'];
                               finalVerse = decoded['verse'];
 
-                              resetWords();
-
+                              print(addedWords.toString());
                               if (!context.mounted) return;
                               Navigator.of(context).push(
                                 MaterialPageRoute(

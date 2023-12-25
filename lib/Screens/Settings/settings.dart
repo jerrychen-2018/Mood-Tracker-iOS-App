@@ -11,7 +11,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  late final LocalNotificationService service;
+  final LocalNotificationService service = LocalNotificationService();
 
   void listenToNotification() =>
       service.onNotificationClick.stream.listen(onNotificationListener);
@@ -28,10 +28,17 @@ class _SettingsState extends State<Settings> {
   }
 
   @override
+  void didUpdateWidget(Settings oldWidget) {
+    // TODO: implement dispose
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromRGBO(112, 203, 255, 1),
           centerTitle: false,
           title: const Text("Settings",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
@@ -45,7 +52,7 @@ class _SettingsState extends State<Settings> {
             const MyTimePickerButton(),
             ElevatedButton(
                 onPressed: () async {
-                  service = LocalNotificationService();
+                  // service ??= LocalNotificationService();
                   listenToNotification();
                   service.setup();
                   service.deleteAllNotifications();

@@ -57,6 +57,7 @@ dependencies:
   flutter_native_timezone: ^2.0.0
   rxdart: ^0.27.7
   shared_preferences: ^2.2.2
+  google_nav_bar: ^5.0.6
 
 flutter_native_splash: 
   color: "#70cbff"

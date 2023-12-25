@@ -1,4 +1,4 @@
-import "package:ebbnflow/components/my_verse_tile.dart";
+import "package:ebbnflow/components/MyVerseTile/my_verse_tile.dart";
 import "package:ebbnflow/Screens/Verse/emotions_words_page.dart";
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:provider/provider.dart';
@@ -16,7 +16,7 @@ class _VerseListState extends State<VerseList> {
   //List<Map<String, dynamic>> listview = [];
 
   Future<void> addVerse() async {
-    final result = await showCupertinoModalBottomSheet(
+    await showCupertinoModalBottomSheet(
         expand: true,
         context: context,
         backgroundColor: Colors.transparent,
@@ -31,6 +31,7 @@ class _VerseListState extends State<VerseList> {
     return Consumer<Breadify>(
         builder: (context, value, child) => Scaffold(
               appBar: AppBar(
+                backgroundColor: Color.fromRGBO(112, 203, 255, 1),
                 centerTitle: false,
                 title: const Text("Your Scripture List",
                     style:
@@ -62,13 +63,13 @@ class _VerseListState extends State<VerseList> {
                   ),
                 ),
               ),
-              floatingActionButton: FloatingActionButton(
-                onPressed: addVerse,
-                shape: const CircleBorder(),
-                child: const Icon(Icons.add),
-              ),
-              floatingActionButtonLocation:
-                  FloatingActionButtonLocation.miniEndFloat,
+              // floatingActionButton: FloatingActionButton(
+              //   onPressed: addVerse,
+              //   shape: const CircleBorder(),
+              //   child: const Icon(Icons.add),
+              // ),
+              // floatingActionButtonLocation:
+              //     FloatingActionButtonLocation.miniEndFloat,
             ));
   }
 }

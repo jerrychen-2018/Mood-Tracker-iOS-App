@@ -67,6 +67,7 @@ class VersePage extends StatelessWidget {
                           DateFormat.yMMMMd('en_US').add_jm().format(now);
                       // await SQLHelper.createItem(
                       //     verseTitle, verse, formattedDate, emotions);
+                      print(emotions);
                       Provider.of<Breadify>(context, listen: false)
                           .addEntryToList(
                               verseTitle, verse, formattedDate, emotions);

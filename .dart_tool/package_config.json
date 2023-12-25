@@ -266,6 +266,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "google_nav_bar",
+      "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/google_nav_bar-5.0.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "google_sign_in",
       "rootUri": "file:///Users/jerrychen/.pub-cache/hosted/pub.dev/google_sign_in-6.1.6",
       "packageUri": "lib/",
@@ -662,7 +668,7 @@
       "languageVersion": "3.2"
     }
   ],
-  "generated": "2023-12-23T05:17:01.255112Z",
+  "generated": "2023-12-25T00:19:18.419876Z",
   "generator": "pub",
   "generatorVersion": "3.2.0"
 }
