@@ -1,4 +1,5 @@
 import 'package:ebbnflow/components/MyVerseTile/my_verse_tile_delete.dart';
+import 'package:ebbnflow/components/MyVerseTile/my_verse_tile_details.dart';
 import 'package:readmore/readmore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
@@ -47,7 +48,15 @@ class _MyVerseTileState extends State<MyVerseTile> {
   Widget build(BuildContext context) {
     return Consumer<Breadify>(
         builder: (context, value, child) => GestureDetector(
-              //onTap: () { Navigator.of(context).push(MaterialPageRoute(builder: (context) => ))},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => MyVerseTileDetails(
+                          verseTitle: widget.itemAtIndex['verseTitle'],
+                          verse: widget.itemAtIndex['verse'],
+                          emotions: widget.itemAtIndex['emotions'],
+                          date: widget.itemAtIndex['date'],
+                        )));
+              },
               child: Container(
                 decoration: BoxDecoration(
                     color: Colors.cyan[600],
@@ -82,12 +91,17 @@ class _MyVerseTileState extends State<MyVerseTile> {
                           ReadMoreText(
                             widget.itemAtIndex['verse'],
                             trimLines: 2,
-                            colorClickableText: Colors.pink,
                             trimMode: TrimMode.Line,
-                            trimCollapsedText: 'Show more',
-                            trimExpandedText: 'Show less',
+                            trimCollapsedText: ' show more',
+                            trimExpandedText: '  show less',
                             moreStyle: const TextStyle(
-                              fontSize: 14,
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            lessStyle: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
                               fontWeight: FontWeight.bold,
                             ),
                           ),

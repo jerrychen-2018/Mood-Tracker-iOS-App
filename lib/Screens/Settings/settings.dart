@@ -33,13 +33,15 @@ class _SettingsState extends State<Settings> {
     super.didUpdateWidget(oldWidget);
   }
 
+  bool _value = true;
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           centerTitle: false,
-          title: const Text("Settings",
+          title: const Text("Settings ⚙️",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
           automaticallyImplyLeading: false,
         ),
@@ -50,6 +52,25 @@ class _SettingsState extends State<Settings> {
             children: [
               const Text("Schedule Daily Notificiation"),
               const MyTimePickerButton(),
+              Switch.adaptive(
+                value: _value,
+                onChanged: (newValue) => setState(() => _value = newValue),
+                activeColor: Colors.white,
+                trackColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.disabled)) {
+                    return Colors.black.withOpacity(.48);
+                  }
+                  return Colors.black;
+                }),
+                thumbColor: MaterialStateProperty.resolveWith<Color>(
+                    (Set<MaterialState> states) {
+                  if (states.contains(MaterialState.disabled)) {
+                    return Colors.deepPurple.withOpacity(.48);
+                  }
+                  return Colors.deepPurple;
+                }),
+              ),
               ElevatedButton(
                   onPressed: () async {
                     // service ??= LocalNotificationService();

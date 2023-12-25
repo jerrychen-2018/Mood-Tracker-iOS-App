@@ -32,7 +32,7 @@ class _VerseListState extends State<VerseList> {
         builder: (context, value, child) => Scaffold(
               appBar: AppBar(
                 centerTitle: false,
-                title: const Text("Your Scripture List",
+                title: const Text("Your Scripture List 🙏",
                     style:
                         TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
                 automaticallyImplyLeading: false,
@@ -57,7 +57,10 @@ class _VerseListState extends State<VerseList> {
                           physics: const NeverScrollableScrollPhysics(),
                           itemCount: value.userEntries.length,
                           itemBuilder: (context, index) => MyVerseTile(
-                              itemAtIndex: value.userEntries[index]))
+                              itemAtIndex: value.userEntries[index])),
+                      const SizedBox(
+                        height: 100,
+                      ),
                     ],
                   ),
                 ),

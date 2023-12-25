@@ -60,8 +60,6 @@ class LocalNotificationService {
         id,
         title,
         body,
-        // tz.TZDateTime.from(
-        //     DateTime.now().add(Duration(seconds: seconds)), tz.local),
         _nextInstanceOfTime(tz, prefs.getInt('hour') ?? 7,
             prefs.getInt('minute') ?? 30, prefs.getInt('ampm') ?? 0),
         details,
