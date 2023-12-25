@@ -9,7 +9,7 @@ class AmPm extends StatelessWidget {
     return Center(
         child: Text(
       isItAm == true ? 'AM' : 'PM',
-      style: const TextStyle(fontSize: 32, color: Colors.black),
+      style: const TextStyle(fontSize: 32),
     ));
   }
 }

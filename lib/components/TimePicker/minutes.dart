@@ -9,7 +9,9 @@ class MyMinutes extends StatelessWidget {
     return Center(
         child: Text(
       (mins < 10) ? '0${mins.toString()}' : mins.toString(),
-      style: const TextStyle(fontSize: 32, color: Colors.black),
+      style: const TextStyle(
+        fontSize: 32,
+      ),
     ));
   }
 }

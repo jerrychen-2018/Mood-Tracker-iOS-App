@@ -111,7 +111,7 @@ class _TimePickerState extends State<TimePicker> {
                       },
                       child: const Text(
                         "Save",
-                        style: TextStyle(fontSize: 18, color: Colors.black),
+                        style: TextStyle(fontSize: 18),
                       )),
                   const SizedBox(
                     width: 10,
@@ -133,7 +133,7 @@ class _TimePickerState extends State<TimePicker> {
                           child: CupertinoPicker(
                             selectionOverlay: Container(
                               height: 50,
-                              color: Colors.grey.withOpacity(0.3),
+                              color: Colors.white38,
                             ),
                             magnification: 0.9,
                             squeeze: 1.5,
@@ -169,7 +169,7 @@ class _TimePickerState extends State<TimePicker> {
                           child: CupertinoPicker(
                             selectionOverlay: Container(
                               height: 50,
-                              color: Colors.grey.withOpacity(0.3),
+                              color: Colors.white38,
                             ),
                             magnification: 0.9,
                             squeeze: 1.5,
@@ -204,7 +204,7 @@ class _TimePickerState extends State<TimePicker> {
                           child: CupertinoPicker(
                             selectionOverlay: Container(
                               height: 50,
-                              color: Colors.grey.withOpacity(0.3),
+                              color: Colors.white38,
                             ),
                             magnification: 0.9,
                             squeeze: 1.5,

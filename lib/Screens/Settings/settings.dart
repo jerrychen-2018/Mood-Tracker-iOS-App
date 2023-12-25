@@ -20,13 +20,6 @@ class _SettingsState extends State<Settings> {
           centerTitle: false,
           title: const Text("Settings ⚙️",
               style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold)),
-          actions: [
-            Icon(Icons.abc),
-            Icon(Icons.lock_clock),
-            SizedBox(
-              width: 30,
-            )
-          ],
           automaticallyImplyLeading: false,
         ),
         body: Center(

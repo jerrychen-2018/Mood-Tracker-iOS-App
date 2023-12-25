@@ -14,5 +14,5 @@ ThemeData darkMode = ThemeData(
     iconTheme: IconThemeData(color: Colors.white),
     colorScheme: ColorScheme.dark(
         background: Colors.grey.shade800,
-        primary: Colors.grey.shade600,
+        primary: Colors.white,
         secondary: Colors.white));

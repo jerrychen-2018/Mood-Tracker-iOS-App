@@ -9,7 +9,7 @@ class MyHours extends StatelessWidget {
     return Center(
         child: Text(
       (hrs + 1).toString(),
-      style: const TextStyle(fontSize: 32, color: Colors.black),
+      style: const TextStyle(fontSize: 32),
     ));
   }
 }
