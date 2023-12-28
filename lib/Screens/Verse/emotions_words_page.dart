@@ -412,7 +412,6 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                     );
                                   });
 
-                              //const url = 'http://127.0.0.1:8001/';
                               const url = 'http://18.144.43.39';
 
                               var response = await http.post(Uri.parse(url),

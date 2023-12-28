@@ -1,4 +1,5 @@
 import 'package:ebbnflow/components/NotificationSettings/settings_notification_page.dart';
+import 'package:ebbnflow/components/ThemeSettings/settings_theme_page.dart';
 import 'package:ebbnflow/components/my_settings_tile.dart';
 
 import "package:flutter/material.dart";
@@ -40,7 +41,12 @@ class _SettingsState extends State<Settings> {
                 const SizedBox(
                   height: 20,
                 ),
-                MySettingsTile(onTap: () {}, text: "App Theme"),
+                MySettingsTile(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const ThemePage()));
+                    },
+                    text: "App Theme"),
                 const SizedBox(
                   height: 20,
                 ),

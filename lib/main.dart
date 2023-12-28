@@ -3,7 +3,8 @@ import 'package:ebbnflow/Screens/Home/home_page.dart';
 import 'package:ebbnflow/Screens/VerseList/verse_list.dart';
 import 'package:ebbnflow/models/breadify.dart';
 import 'package:ebbnflow/Screens/Welcome/welcome_page.dart';
-import 'package:ebbnflow/themes/theme.dart';
+import 'package:ebbnflow/models/theme_provider.dart';
+
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_native_timezone/flutter_native_timezone.dart';
@@ -37,7 +38,10 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<Breadify>(create: (_) => Breadify()),
+    ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -74,22 +78,19 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (context) => Breadify(),
-        builder: (context, child) => MaterialApp(
-              debugShowCheckedModeBanner: false,
-              title: 'Breadify',
-              theme: lightMode,
-              darkTheme: darkMode,
-              initialRoute: '/welcome',
-              onGenerateRoute: Router.generateRoute,
-              navigatorKey: navigatorKey,
-              home: const WelcomePage(),
-              routes: {
-                '/verselist': (context) => const VerseList(),
-                '/bottomnavbar': (context) => const BottomNavBar(),
-                '/welcome': (context) => const WelcomePage()
-              },
-            ));
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Breadify',
+      theme: Provider.of<ThemeProvider>(context).themeData,
+      initialRoute: '/welcome',
+      onGenerateRoute: Router.generateRoute,
+      navigatorKey: navigatorKey,
+      home: const WelcomePage(),
+      routes: {
+        '/verselist': (context) => const VerseList(),
+        '/bottomnavbar': (context) => const BottomNavBar(),
+        '/welcome': (context) => const WelcomePage()
+      },
+    );
   }
 }

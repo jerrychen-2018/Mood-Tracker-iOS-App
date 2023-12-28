@@ -37,8 +37,8 @@ class _TimePickerState extends State<TimePicker> {
     if (payload != null && payload.isNotEmpty) {
       print('payload $payload');
 
-      navigatorKey.currentState
-          ?.pushNamedAndRemoveUntil('/bottomnavbar', (route) => false);
+      navigatorKey.currentState?.pushNamedAndRemoveUntil('/bottomnavbar',
+          (route) => (route.settings.name != '/bottomnavbar') || route.isFirst);
     }
   }
 
