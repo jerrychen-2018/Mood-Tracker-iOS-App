@@ -56,7 +56,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
                 icon: Icons.home,
                 text: "Home",
               ),
-              GButton(icon: Icons.settings, text: "Settings")
+              GButton(icon: Icons.settings, text: "Settings"),
             ],
             onTabChange: _onItemTapped,
           ),

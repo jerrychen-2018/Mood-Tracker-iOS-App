@@ -48,31 +48,37 @@ class MyVerseTileDetails extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(30),
-              child: Row(
-                children: [
-                  for (var x in wordsStringToList(emotions))
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Container(
-                        height: 50,
-                        width: 80,
-                        decoration: BoxDecoration(
-                            color: Colors.amber.shade900,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Center(
-                            child: Text(
-                          x,
-                          style: TextStyle(color: Colors.white),
-                        )),
-                      ),
+            const SizedBox(height: 30),
+            Wrap(
+              runSpacing: 5.0,
+              spacing: 5.0,
+              children: [
+                for (var x in wordsStringToList(emotions))
+                  Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: Container(
+                      height: 50,
+                      width: 80,
+                      decoration: BoxDecoration(
+                          color: Colors.amber.shade900,
+                          borderRadius: BorderRadius.circular(10)),
+                      child: Center(
+                          child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Padding(
+                          padding: const EdgeInsets.all(15.0),
+                          child: Text(
+                            x,
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      )),
                     ),
-                ],
-              ),
+                  ),
+              ],
             ),
             const SizedBox(
-              height: null,
+              height: 30,
             )
           ],
         )),

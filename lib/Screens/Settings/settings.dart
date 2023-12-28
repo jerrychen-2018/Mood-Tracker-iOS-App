@@ -1,4 +1,5 @@
-import 'package:ebbnflow/components/my_time_picker_button.dart';
+import 'package:ebbnflow/components/NotificationSettings/settings_notification_page.dart';
+import 'package:ebbnflow/components/my_settings_tile.dart';
 
 import "package:flutter/material.dart";
 
@@ -10,8 +11,6 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool _value = true;
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -23,32 +22,31 @@ class _SettingsState extends State<Settings> {
           automaticallyImplyLeading: false,
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Text("Schedule Daily Notificiation"),
-              const MyTimePickerButton(),
-              Switch.adaptive(
-                value: _value,
-                onChanged: (newValue) => setState(() => _value = newValue),
-                activeColor: Colors.white,
-                trackColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.disabled)) {
-                    return Colors.black.withOpacity(.48);
-                  }
-                  return Colors.black;
-                }),
-                thumbColor: MaterialStateProperty.resolveWith<Color>(
-                    (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.disabled)) {
-                    return Colors.deepPurple.withOpacity(.48);
-                  }
-                  return Colors.deepPurple;
-                }),
-              ),
-            ],
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                MySettingsTile(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const NotificationsPage()));
+                    },
+                    text: "Notifications"),
+                const SizedBox(
+                  height: 20,
+                ),
+                MySettingsTile(onTap: () {}, text: "App Theme"),
+                const SizedBox(
+                  height: 20,
+                ),
+                MySettingsTile(onTap: () {}, text: "About"),
+              ],
+            ),
           ),
         ),
       ),

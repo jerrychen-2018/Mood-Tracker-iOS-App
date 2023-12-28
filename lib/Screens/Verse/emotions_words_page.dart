@@ -404,15 +404,28 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             } else {
                               // HTTP Request
 
-                              const url = 'http://127.0.0.1:5000/';
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  });
+
+                              //const url = 'http://127.0.0.1:8001/';
+                              const url = 'http://18.144.43.39';
+
                               var response = await http.post(Uri.parse(url),
                                   body: json.encode(
                                       {'emotions': addedWords.toString()}));
                               response = await http.get(Uri.parse(url));
-                              final decoded = json.decode(response.body)
+                              final decoded = jsonDecode(response.body)
                                   as Map<String, dynamic>;
+                              //final decoded = json.decode(response.body) as Map<String, dynamic>;
+
                               finalVerseTitle = decoded['verseTitle'];
                               finalVerse = decoded['verse'];
+                              Navigator.of(context, rootNavigator: true).pop();
 
                               if (!context.mounted) return;
                               Navigator.of(context).push(
