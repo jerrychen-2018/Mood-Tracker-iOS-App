@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart';
-import 'package:ebbnflow/Screens/Verse/verse_page.dart';
 import 'package:ebbnflow/components/my_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -49,7 +48,7 @@ class _HomeSelectionPageState extends State<HomeSelectionPage> {
   void getVerse() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => BottomNavBar()),
+      MaterialPageRoute(builder: (context) => const BottomNavBar()),
     );
   }
 

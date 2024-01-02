@@ -52,6 +52,8 @@ class _TimePickerState extends State<TimePicker> {
   @override
   void initState() {
     loadData();
+    listenToNotification();
+    service.setup();
     super.initState();
   }
 
@@ -96,8 +98,6 @@ class _TimePickerState extends State<TimePicker> {
                   TextButton(
                       onPressed: () async {
                         saveScheduledTime();
-                        listenToNotification();
-                        service.setup();
 
                         service.deleteAllNotifications();
                         await service.showScheduledNotificationWithPayload(
@@ -181,21 +181,14 @@ class _TimePickerState extends State<TimePicker> {
                               initialItem: widget.selectedMinute,
                             ),
                             itemExtent: 50,
-                            //backgroundColor: Colors.white,
                             children: minutes
                                 .map((item) => Center(
                                       child: MyMinutes(mins: item),
                                     ))
                                 .toList(),
                             onSelectedItemChanged: (selectedItem) {
-                              // final SharedPreferences prefs =
-                              //     await SharedPreferences.getInstance();
                               savedMinutes = selectedItem;
-                              // prefs.setInt('minute', selectedItem);
-                              // if (context.mounted) {
-                              //   Provider.of<Breadify>(context, listen: false)
-                              //       .setMinutes(selectedItem);
-                              // }
+
                               setState(() {
                                 widget.selectedMinute = selectedItem;
                               });
@@ -216,20 +209,13 @@ class _TimePickerState extends State<TimePicker> {
                               initialItem: widget.selectedAmPm,
                             ),
                             itemExtent: 50,
-                            //backgroundColor: Colors.white,
                             children: const [
                               AmPm(isItAm: true),
                               AmPm(isItAm: false)
                             ],
                             onSelectedItemChanged: (selectedItem) {
-                              // final SharedPreferences prefs =
-                              //     await SharedPreferences.getInstance();
                               savedAmPm = selectedItem;
-                              // prefs.setInt('ampm', selectedItem);
-                              // if (context.mounted) {
-                              //   Provider.of<Breadify>(context, listen: false)
-                              //       .setAmPm(selectedItem);
-                              // }
+
                               setState(() {
                                 widget.selectedAmPm = selectedItem;
                               });

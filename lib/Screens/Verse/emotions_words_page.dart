@@ -1,10 +1,10 @@
 import 'dart:convert';
-import 'package:flutter/cupertino.dart';
 import 'package:ebbnflow/Screens/Verse/verse_page.dart';
 import "package:flutter/material.dart";
 import 'package:gap/gap.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter/cupertino.dart';
 
 class EmotionWordsPage extends StatefulWidget {
   const EmotionWordsPage({Key? key}) : super(key: key);
@@ -35,13 +35,20 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
     showDialog(
       context: context,
       builder: (context) {
-        return const AlertDialog(
-          backgroundColor: Colors.deepOrange,
-          title: Text(
-            'No words were chosen, please choose at least 1 word.',
-            style: TextStyle(color: Colors.white),
-          ),
-        );
+        return CupertinoAlertDialog(
+            title: const Text("Error"),
+            content: const Text("Please choose at least one word."),
+            actions: [
+              CupertinoDialogAction(
+                isDefaultAction: true,
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Done',
+                    style: TextStyle(
+                        color: Theme.of(context).colorScheme.tertiary)),
+              )
+            ]);
       },
     );
   }
@@ -149,7 +156,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: fearIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 fearIsPressed = !fearIsPressed;
@@ -161,7 +168,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Fear")),
+                            child: Text("Fear",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
@@ -169,7 +180,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: lonelyIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 lonelyIsPressed = !lonelyIsPressed;
@@ -181,7 +192,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Lonely")),
+                            child: Text("Lonely",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
@@ -189,7 +204,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: gratitudeIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 gratitudeIsPressed = !gratitudeIsPressed;
@@ -201,7 +216,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Gratitude"))
+                            child: Text("Gratitude",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary)))
                       ],
                     ),
                     Row(
@@ -211,7 +230,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: discouragedIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 discouragedIsPressed = !discouragedIsPressed;
@@ -223,7 +242,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Discouraged")),
+                            child: Text("Discouraged",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
@@ -231,7 +254,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: angryIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 angryIsPressed = !angryIsPressed;
@@ -243,7 +266,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Angry")),
+                            child: Text("Angry",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
@@ -251,7 +278,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: joyfulIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 joyfulIsPressed = !joyfulIsPressed;
@@ -263,7 +290,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Joyful"))
+                            child: Text("Joyful",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary)))
                       ],
                     ),
                     Row(
@@ -273,7 +304,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: confusedIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 confusedIsPressed = !confusedIsPressed;
@@ -285,7 +316,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Confused")),
+                            child: Text("Confused",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
@@ -293,7 +328,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: worriedIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 worriedIsPressed = !worriedIsPressed;
@@ -305,7 +340,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Worried")),
+                            child: Text("Worried",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
@@ -313,7 +352,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: hopefulIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 hopefulIsPressed = !hopefulIsPressed;
@@ -325,7 +364,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Hopeful"))
+                            child: Text("Hopeful",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary)))
                       ],
                     ),
                     Row(
@@ -335,7 +378,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: enviousIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 enviousIsPressed = !enviousIsPressed;
@@ -347,7 +390,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Envious")),
+                            child: Text("Envious",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
@@ -355,7 +402,7 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: disappointedIsPressed
                                     ? Colors.lightBlue
-                                    : Colors.white),
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 disappointedIsPressed = !disappointedIsPressed;
@@ -367,15 +414,19 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Disappointed")),
+                            child: Text("Disappointed",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary))),
                         const SizedBox(
                           width: 8,
                         ),
                         OutlinedButton(
                             style: OutlinedButton.styleFrom(
                                 backgroundColor: otherIsPressed
-                                    ? Colors.lightBlue
-                                    : Colors.white),
+                                    ? Theme.of(context).colorScheme.secondary
+                                    : Theme.of(context).colorScheme.primary),
                             onPressed: () {
                               setState(() {
                                 otherIsPressed = !otherIsPressed;
@@ -387,7 +438,11 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                                 }
                               });
                             },
-                            child: const Text("Other"))
+                            child: Text("Other",
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .tertiary)))
                       ],
                     ),
                     const SizedBox(
@@ -398,6 +453,10 @@ class _EmotionWordsPageState extends State<EmotionWordsPage> {
                       width: 160,
                       height: 50,
                       child: ElevatedButton(
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStatePropertyAll<Color>(
+                                Theme.of(context).colorScheme.secondary),
+                          ),
                           onPressed: () async {
                             if (addedWords.isEmpty) {
                               noWordsMessage();

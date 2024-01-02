@@ -17,7 +17,6 @@ class Breadify extends ChangeNotifier {
 
   // get scheduled time, if any
   int get scheduledHour {
-    ;
     return _scheduledHour;
   }
 

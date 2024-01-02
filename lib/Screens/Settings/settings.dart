@@ -1,3 +1,4 @@
+import 'package:ebbnflow/components/AboutSettings/settings_about_page.dart';
 import 'package:ebbnflow/components/NotificationSettings/settings_notification_page.dart';
 import 'package:ebbnflow/components/ThemeSettings/settings_theme_page.dart';
 import 'package:ebbnflow/components/my_settings_tile.dart';
@@ -50,7 +51,12 @@ class _SettingsState extends State<Settings> {
                 const SizedBox(
                   height: 20,
                 ),
-                MySettingsTile(onTap: () {}, text: "About"),
+                MySettingsTile(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const AboutPage()));
+                    },
+                    text: "About"),
               ],
             ),
           ),

@@ -1,4 +1,4 @@
-package com.jerrychen.current_v1
+package com.jerrychen.breadify
 
 import io.flutter.embedding.android.FlutterActivity
 

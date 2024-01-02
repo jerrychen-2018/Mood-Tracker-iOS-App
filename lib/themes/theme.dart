@@ -8,13 +8,17 @@ ThemeData lightMode = ThemeData(
         primary:
             Color.fromRGBO(255, 145, 77, 1), //Color.fromRGBO(41, 112, 154, 1),
 
-        secondary: Color.fromRGBO(33, 93, 128, 1)));
+        secondary: Color.fromRGBO(33, 93, 128, 1),
+        tertiary: Colors.black));
 
 ThemeData darkMode = ThemeData(
     brightness: Brightness.dark,
-    appBarTheme: AppBarTheme(color: Colors.grey.shade800),
-    iconTheme: IconThemeData(color: Colors.white),
-    colorScheme: ColorScheme.dark(
-        background: Colors.grey.shade800,
-        primary: const Color.fromARGB(255, 11, 14, 52),
+    appBarTheme: const AppBarTheme(
+      color: Color.fromARGB(255, 64, 59, 87),
+    ),
+    iconTheme: const IconThemeData(color: Colors.white),
+    dialogBackgroundColor: const Color.fromARGB(255, 64, 59, 87),
+    colorScheme: const ColorScheme.dark(
+        background: Color.fromARGB(255, 64, 59, 87),
+        primary: Color.fromARGB(255, 41, 37, 64),
         secondary: Colors.white));

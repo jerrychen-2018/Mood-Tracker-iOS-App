@@ -1,10 +1,10 @@
 import 'package:ebbnflow/components/MyVerseTile/my_verse_tile_delete.dart';
 import 'package:ebbnflow/components/MyVerseTile/my_verse_tile_details.dart';
 import 'package:readmore/readmore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 import 'package:ebbnflow/models/breadify.dart';
 import "package:flutter/material.dart";
+import 'package:flutter/cupertino.dart';
 
 class MyVerseTile extends StatefulWidget {
   final Map<String, dynamic> itemAtIndex;
@@ -20,28 +20,30 @@ class _MyVerseTileState extends State<MyVerseTile> {
     // show a dialogue box for confirmation
     showDialog(
         context: context,
-        builder: (context) => AlertDialog(
-              title: const Text("Delete"),
-              content:
-                  const Text("Are you sure you want to delete this entry?"),
-              actions: [
-                // cancel button
-                TextButton(
-                    onPressed: () => Navigator.pop(context),
-                    child: const Text("Cancel")),
-                // delete button
-                TextButton(
+        builder: (context) => CupertinoAlertDialog(
+                title: const Text("Delete"),
+                content:
+                    const Text("Are you sure you want to delete this entry?"),
+                actions: [
+                  CupertinoDialogAction(
+                    isDefaultAction: true,
                     onPressed: () {
-                      // await SQLHelper.deleteItem(widget.itemAtIndex['id']);
-                      Provider.of<Breadify>(context, listen: false)
-                          .removeEntryFromList(widget.itemAtIndex['id']);
-
-                      if (!context.mounted) return;
                       Navigator.pop(context);
                     },
-                    child: const Text("Delete"))
-              ],
-            ));
+                    child: Text('Cancel',
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.tertiary)),
+                  ),
+                  CupertinoDialogAction(
+                    isDestructiveAction: true,
+                    onPressed: () {
+                      Provider.of<Breadify>(context, listen: false)
+                          .removeEntryFromList(widget.itemAtIndex['id']);
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Delete'),
+                  ),
+                ]));
   }
 
   @override
@@ -66,11 +68,12 @@ class _MyVerseTileState extends State<MyVerseTile> {
                         color: Colors.black.withOpacity(0.4),
                         spreadRadius: 4,
                         blurRadius: 8,
-                        offset: Offset(0, 5), // changes position of shadow
+                        offset:
+                            const Offset(0, 5), // changes position of shadow
                       ),
                     ]),
-                margin: EdgeInsets.only(top: 20, left: 20, right: 20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+                padding: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,

@@ -47,8 +47,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: GNav(
             backgroundColor: Colors.white,
-            color: Color.fromRGBO(56, 129, 172, 1),
-            activeColor: Color.fromRGBO(33, 93, 128, 1),
+            color: const Color.fromRGBO(56, 129, 172, 1),
+            activeColor: const Color.fromRGBO(33, 93, 128, 1),
             gap: 8,
             iconSize: 32,
             tabs: const [

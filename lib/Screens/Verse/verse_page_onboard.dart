@@ -1,16 +1,16 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ebbnflow/models/breadify.dart';
+import 'package:ebbnflow/Screens/BottomNavBar/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
-class VersePage extends StatelessWidget {
+class VersePageOnboard extends StatelessWidget {
   final String verse;
   final String verseTitle;
   final String emotions;
   final BuildContext parentContext;
-  const VersePage(
+  const VersePageOnboard(
       {super.key,
       required this.verseTitle,
       required this.verse,
@@ -72,16 +72,16 @@ class VersePage extends StatelessWidget {
                         DateTime now = DateTime.now();
                         String formattedDate =
                             DateFormat.yMMMMd('en_US').add_jm().format(now);
+
                         Provider.of<Breadify>(context, listen: false)
                             .addEntryToList(
                                 verseTitle, verse, formattedDate, emotions);
 
-                        SharedPreferences prefs =
-                            await SharedPreferences.getInstance();
-                        prefs.setBool('firstLoadingOfVerseList', false);
-
                         if (!context.mounted) return;
-                        Navigator.of(parentContext).pop();
+                        Navigator.of(parentContext).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) => const BottomNavBar()),
+                            (Route<dynamic> route) => false);
                       },
                       child: const Text('Done'),
                     ),

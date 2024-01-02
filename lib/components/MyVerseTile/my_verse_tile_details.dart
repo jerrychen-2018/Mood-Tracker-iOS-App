@@ -26,7 +26,7 @@ class MyVerseTileDetails extends StatelessWidget {
         centerTitle: false,
         title: FittedBox(
           fit: BoxFit.fitWidth,
-          child: Text("📖  ${verseTitle}",
+          child: Text("📖  $verseTitle",
               style:
                   const TextStyle(fontSize: 24, fontWeight: FontWeight.normal)),
         ),
@@ -43,7 +43,7 @@ class MyVerseTileDetails extends StatelessWidget {
               width: 300,
               child: Text(
                 verse,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
                 softWrap: true,
                 textAlign: TextAlign.center,
               ),
@@ -69,7 +69,7 @@ class MyVerseTileDetails extends StatelessWidget {
                           padding: const EdgeInsets.all(15.0),
                           child: Text(
                             x,
-                            style: TextStyle(color: Colors.white),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       )),

@@ -1,4 +1,5 @@
 import "package:ebbnflow/components/MyVerseTile/my_verse_tile.dart";
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:provider/provider.dart';
 import 'package:ebbnflow/models/breadify.dart';
 import "package:flutter/material.dart";
@@ -11,6 +12,14 @@ class VerseList extends StatefulWidget {
 }
 
 class _VerseListState extends State<VerseList> {
+  late bool checkFirstEmpty = true;
+  @override
+  void initState() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    checkFirstEmpty = (prefs.getBool('firstLoadingOfVerseList') ?? true);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<Breadify>(
@@ -44,12 +53,19 @@ class _VerseListState extends State<VerseList> {
                                 SizedBox(
                                     height: MediaQuery.of(context).size.width *
                                         0.5),
-                                const Text(
-                                  "Add your first verse!",
-                                  style: TextStyle(
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold),
-                                ),
+                                (checkFirstEmpty)
+                                    ? const Text(
+                                        "Add your first verse!",
+                                        style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold),
+                                      )
+                                    : const Text(
+                                        "Add a verse!",
+                                        style: TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold),
+                                      ),
                                 const Text("Tap the big PLUS button",
                                     style: TextStyle(
                                         fontSize: 20,
