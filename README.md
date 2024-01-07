@@ -1,17 +1,9 @@
-# current_v1
+# Mood Flutter App for iOS
 
-A new Flutter project.
+## A beta version of a mobile application written in Dart for tracking emotions and providing related verses in the Bible.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+This project was built out of curiosity for learning Flutter and Dart while growing my skills in full-stack development. It is made up of several components or Widgets, including a welcome screen, onboarding screens, home screen, and settings screen, with smaller components, such as buttons and containers, embedded in each page. It utilizes an SQLite database with the sqflite Flutter package (https://pub.dev/packages/sqflite) to store entries the user adds and the shared_preferences flutter package (https://pub.dev/packages/shared_preferences) to store smaller data such as app color themes and if it's the first time the user is opening the app. 
 
-A few resources to get you started if this is your first Flutter project:
+The app uses a Flask/Python backend to call the ESV API that allows retrieval of Bible verses as well as the AWS services EC2 and Secrets Manager to run the web server and store secrets, such as API keys. 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# currentsvapp
