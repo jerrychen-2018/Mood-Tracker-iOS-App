@@ -7,7 +7,7 @@ This project was built out of curiosity for learning Flutter and Dart while grow
 
 The app uses a Flask/Python backend to call the ESV API that allows retrieval of Bible verses as well as the AWS services EC2 and Secrets Manager to run the web server and store secrets, such as API keys. 
 
-# What I learned:
+## What I learned:
 - Mobile App Development in Flutter/Dart
 - SQlite
 - Creating a REST API
